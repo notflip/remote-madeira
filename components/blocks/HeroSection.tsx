@@ -19,14 +19,11 @@ export default function HeroSection({
 
   return (
     <section className="hero-section">
-      {/*=== Hero Wrapper ===*/}
       <div className="hero-wrapper black-bg">
-        {/*=== Single Slider ===*/}
         <div className="single-slider">
           <div className="container-fluid">
             <div className="row align-items-center">
               <div className="col-xl-6">
-                {/*=== Hero Content ===*/}
                 <div className="hero-content text-white">
                   <h1 data-animation="fadeInDown" data-delay=".4s">
                     {title}
@@ -51,15 +48,14 @@ export default function HeroSection({
                 </div>
               </div>
               <div className="col-xl-6">
-                {/*=== Hero Image ===*/}
                 <div className="hero-image" data-animation="fadeInRight">
                   <ImageBox
                     data-sanity={encodeDataAttribute?.('coverImage')}
                     image={heroImage}
-                    width={1600}
-                    height={1200}
+                    width={1200}
+                    height={900}
                     alt=""
-                    classesWrapper="relative aspect-[16/9]"
+                    classesWrapper="relative aspect-[3/2]"
                   />
                 </div>
               </div>

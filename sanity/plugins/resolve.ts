@@ -6,14 +6,12 @@
 import { defineDocuments, defineLocations } from 'sanity/presentation'
 
 import { resolveHref } from '@/sanity/lib/utils'
-import westTourPage from '../schemas/singletons/westTourPage'
-import rockClimbingPage from '../schemas/singletons/rockClimbingPage'
 
 export const mainDocuments = defineDocuments([
-  {
-    route: '/projects/:slug',
-    filter: `_type == "project" && slug.current == $slug`,
-  },
+  // {
+  //   route: '/projects/:slug',
+  //   filter: `_type == "project" && slug.current == $slug`,
+  // },
   {
     route: '/:slug',
     filter: `_type == "page" && slug.current == $slug`,

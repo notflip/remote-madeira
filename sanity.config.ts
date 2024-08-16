@@ -11,7 +11,7 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
-import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
+import { singletonPlugin } from '@/sanity/plugins/settings'
 import page from '@/sanity/schemas/documents/page'
 import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
@@ -19,35 +19,64 @@ import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import homePage from '@/sanity/schemas/singletons/homePage'
 import settings from '@/sanity/schemas/singletons/settings'
+import westTourPage from '@/sanity/schemas/singletons/westTourPage'
+import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
+import privateTourPage from '@/sanity/schemas/singletons/privateTourPage'
+import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
+import rockClimbingPage from '@/sanity/schemas/singletons/rockClimbingPage'
+import picoPage from '@/sanity/schemas/singletons/picoPage'
+import { structure } from './sanity/structure'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Remote Madeira'
 
 export default defineConfig({
   basePath: studioUrl,
   projectId: projectId || '',
   dataset: dataset || '',
   title,
+
+  scheduledPublishing: {
+    enabled: false,
+  },
+
+  tasks: {
+    enabled: false,
+  },
+
+  document: {
+    comments: {
+      enabled: false,
+    },
+  },
+
   schema: {
-    // If you want more content types, you can add them to this array
     types: [
       // Singletons
       homePage,
+      westTourPage,
+      eastTourPage,
+      privateTourPage,
+      wineTourPage,
+      rockClimbingPage,
+      picoPage,
       settings,
+
       // Documents
       duration,
       page,
       project,
+
       // Objects
       milestone,
       timeline,
     ],
   },
+
   plugins: [
     structureTool({
-      structure: pageStructure([homePage, settings]),
+      structure,
     }),
+
     presentationTool({
       resolve,
       previewUrl: {
@@ -56,10 +85,18 @@ export default defineConfig({
         },
       },
     }),
+
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([homePage.name, settings.name]),
+    singletonPlugin([
+      'homePage',
+      'eastTourPage',
+      'westTourPage',
+      'settings'
+    ]),
+
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
+
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),

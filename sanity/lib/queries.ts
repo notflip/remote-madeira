@@ -7,7 +7,15 @@ export const homePageQuery = groq`
     subtitle,
     heroImage,
     aboutTitle,
-    aboutSubtitle
+    aboutSubtitle,
+    aboutItems[] {
+      title,
+      description,
+      image,  
+      link->{_id, title}
+    },
+    activityTitle,
+    activityItems,
   }
 `
 

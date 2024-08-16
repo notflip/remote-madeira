@@ -1,5 +1,5 @@
 import { SparkleIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'wineTourPage',
@@ -7,9 +7,17 @@ export default defineType({
   type: 'document',
   icon: SparkleIcon,
   fieldsets: [
-    // { name: 'hero', title: 'Hero Section', options: { collapsible: true } },
+    { name: 'hero', title: 'Hero Section', options: { collapsible: true } },
   ],
-  fields: [],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+      fieldset: 'hero',
+    }),
+  ],
   preview: {
     select: {
       title: 'title',

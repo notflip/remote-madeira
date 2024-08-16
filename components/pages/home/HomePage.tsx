@@ -1,13 +1,9 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 
-import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
-import { Header } from '@/components/shared/Header'
-import ImageBox from '@/components/shared/ImageBox'
-import { resolveHref } from '@/sanity/lib/utils'
-import type { HomePagePayload } from '@/types'
 import AboutSection from '@/components/blocks/AboutSection'
+import ActivitySection from '@/components/blocks/ActivitySection'
 import HeroSection from '@/components/blocks/HeroSection'
+import type { HomePagePayload } from '@/types'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -19,6 +15,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <HeroSection data={data} encodeDataAttribute={encodeDataAttribute} />
       <AboutSection data={data} encodeDataAttribute={encodeDataAttribute} />
+      <ActivitySection data={data} />
     </>
   )
 }

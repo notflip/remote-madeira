@@ -36,6 +36,8 @@ export interface HomePagePayload {
   aboutTitle: string
   aboutSubtitle: string
   aboutItems: Array<any>
+  activityTitle: string
+  activityItems: Array<any>
 }
 
 export interface PagePayload {

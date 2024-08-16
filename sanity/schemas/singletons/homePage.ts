@@ -1,5 +1,5 @@
 import { HomeIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'homePage',
@@ -7,13 +7,25 @@ export default defineType({
   type: 'document',
   icon: HomeIcon,
   fieldsets: [
-    { name: 'hero', title: 'Hero Section', options: { collapsible: true } },
-    { name: 'about', title: 'About Section', options: { collapsible: true } },
+    {
+      name: 'hero',
+      title: 'Hero Section',
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: 'about',
+      title: 'About Section',
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: 'activity',
+      title: 'Activity Section',
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     defineField({
       name: 'title',
-      description: 'This field is the title of your personal website.',
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
@@ -63,30 +75,156 @@ export default defineType({
       type: 'array',
       of: [
         defineField({
-          name: 'link',
-          type: 'reference',
-          to: [
-            {
-              type: 'westTourPage',
-            },
-            {
-              type: 'eastTourPage',
-            },
-            {
-              type: 'privateTourPage',
-            },
-            {
-              type: 'wineTourPage',
-            },
-            {
-              type: 'rockClimbingPage',
-            },
-            {
-              type: 'picoPage',
-            },
+          type: 'object',
+          name: 'aboutItem',
+          fields: [
+            defineField({
+              type: 'string',
+              name: 'title',
+              title: 'Title',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              type: 'string',
+              name: 'description',
+              title: 'Description',
+              description:
+                'Short description that goes underneat the title, max 200 characters',
+              validation: (rule) => rule.required().max(200),
+            }),
+            defineField({
+              type: 'image',
+              name: 'image',
+              title: 'Tour Image',
+              validation: (rule) => rule.required(),
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                defineField({
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  description:
+                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
+                }),
+              ],
+            }),
+            defineField({
+              name: 'link',
+              type: 'reference',
+              to: [
+                {
+                  type: 'westTourPage',
+                },
+                {
+                  type: 'eastTourPage',
+                },
+                {
+                  type: 'privateTourPage',
+                },
+                {
+                  type: 'wineTourPage',
+                },
+                {
+                  type: 'rockClimbingPage',
+                },
+                {
+                  type: 'picoPage',
+                },
+              ],
+              validation: (rule) => rule.required(),
+              options: {
+                disableNew: true,
+              },
+            }),
           ],
+          preview: {
+            select: {
+              title: 'link.title',
+              media: 'image',
+            },
+            prepare({ title, media }) {
+              return {
+                title: title || 'No title',
+                media: media,
+              }
+            },
+          },
         }),
       ],
+      fieldset: 'about',
+    }),
+
+    // Activity Section
+    defineField({
+      name: 'activityTitle',
+      type: 'string',
+      title: 'Activity Title',
+      validation: (rule) => rule.required(),
+      fieldset: 'activity',
+    }),
+
+    defineField({
+      name: 'activityItems',
+      type: 'array',
+      of: [
+        defineField({
+          type: 'object',
+          name: 'activityItem',
+          fields: [
+            defineField({
+              type: 'string',
+              name: 'title',
+              title: 'Title',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              type: 'string',
+              name: 'subtitle',
+              title: 'Subtitle',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              type: 'string',
+              name: 'description',
+              title: 'Description',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              type: 'image',
+              name: 'image',
+              title: 'Tour Image',
+              validation: (rule) => rule.required(),
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                defineField({
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  description:
+                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
+                }),
+              ],
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'title',
+              media: 'image',
+            },
+            prepare({ title, media }) {
+              return {
+                title: title || 'No title',
+                media: media,
+              }
+            },
+          },
+        }),
+      ],
+      fieldset: 'activity',
     }),
   ],
   preview: {
