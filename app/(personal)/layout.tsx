@@ -46,12 +46,12 @@ export default async function IndexRoute({
 }: {
   children: React.ReactNode
 }) {
-  const { data: settings } = await loadSettings()
+  const { data } = await loadSettings()
 
   return (
     <>
       <Suspense>
-        <Header logo={settings.logo} />
+        <Header logo={data.settings.logo} />
       </Suspense>
       <div>
         <Suspense>{children}</Suspense>

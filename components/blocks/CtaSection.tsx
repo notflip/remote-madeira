@@ -35,11 +35,9 @@ export default function CtaSection({
           <div className="col-xl-8">
             <div className="cta-content-box text-center text-white wow fadeInDown">
               <h2 className="mb-35">{ctaTitle}</h2>
-              <Link legacyBehavior href="/about">
-                <a className="main-btn primary-btn">
-                  Check Availability
-                  <i className="far fa-paper-plane" />
-                </a>
+              <Link className="main-btn primary-btn" href="/about">
+                Check Availability
+                <i className="far fa-paper-plane" />
               </Link>
             </div>
           </div>

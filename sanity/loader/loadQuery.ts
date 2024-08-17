@@ -8,6 +8,7 @@ import {
   footerQuery,
   homePageQuery,
   pagesBySlugQuery,
+  privacyPolicyPageQuery,
   settingsQuery,
   testimonialsQuery,
 } from '@/sanity/lib/queries'
@@ -80,6 +81,14 @@ export function loadHomePage() {
     homePageQuery,
     {},
     { next: { tags: ['homePage', 'project'] } },
+  )
+}
+
+export function loadPrivacyPolicyPage() {
+  return loadQuery<any | null>(
+    privacyPolicyPageQuery,
+    {},
+    { next: { tags: ['privacyPolicyPage'] } },
   )
 }
 

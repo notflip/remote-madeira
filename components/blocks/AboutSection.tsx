@@ -50,7 +50,7 @@ export default function AboutSection({
 
   return (
     <section className="about-section pt-100">
-      <div className="container-fluid">
+      <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-9">
             <div className="about-content-box text-center mb-55 wow fadeInDown">
@@ -62,7 +62,9 @@ export default function AboutSection({
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="container-fluid">
         <Slider
           {...sliderSettings}
           className="slider-active-4-item wow fadeInUp"

@@ -19,12 +19,12 @@ const DeskTopMenu = () => {
       <nav className="main-menu d-none d-xl-block">
         <ul>
           <li className="menu-item has-children">
-            <a href="#">
+            <Link href="#">
               Home
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
-            </a>
+            </Link>
             <ul className="sub-menu">
               <li>
                 <Link href="/">Home 01</Link>

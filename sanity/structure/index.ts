@@ -19,6 +19,15 @@ export const structure: StructureResolver = (S, context) =>
                     .documentId('homePage')
                     .title('Home Page'),
                 ),
+              S.listItem()
+                .schemaType('privacyPolicyPage')
+                .title('Privacy Policy Page')
+                .child(
+                  S.document()
+                    .schemaType('privacyPolicyPage')
+                    .documentId('privacyPolicyPage')
+                    .title('Privacy Policy Page'),
+                ),
 
               S.divider(),
 

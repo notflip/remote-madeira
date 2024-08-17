@@ -63,8 +63,13 @@ export interface TestimonialPayload {
 }
 
 export interface SettingsPayload {
-  logo: Image
-  footer?: PortableTextBlock[]
-  menuItems?: MenuItem[]
-  ogImage?: Image
+  settings: {
+    logo: Image
+    footer?: PortableTextBlock[]
+    menuItems?: MenuItem[]
+    ogImage?: Image
+  }
+  footer: {
+    about: string
+  }
 }

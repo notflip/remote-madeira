@@ -1,72 +1,74 @@
 import { urlForImage } from '@/sanity/lib/utils'
 import Link from 'next/link'
 
-interface FooterProps {
-  settings: any
-  footer: any
-}
-export default function Footer(props: FooterProps) {
-  const { settings, footer } = props
+export default function Footer(props: any) {
+  const { data } = props
+
+  const { logo } = data.settings
 
   const logoUrl =
-    settings.logo &&
-    urlForImage(settings.logo)?.height(120).width(175).fit('crop').url()
+    logo && urlForImage(logo)?.height(120).width(175).fit('crop').url()
 
   return (
     <footer className="main-footer black-bg">
       <div className="container">
         <div className="footer-widget-area pt-75 pb-30">
           <div className="row">
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <div className="footer-widget about-company-widget mb-40">
                 <h4 className="widget-title">About</h4>
                 <div className="footer-content">
-                  <p>{footer.about}</p>
-                  <a href="#" className="footer-logo">
+                  <p>{data.footer.about}</p>
+                  <Link href="/" className="footer-logo">
                     <img src={logoUrl} alt="Site Logo" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6">
-              <div className="footer-widget service-nav-widget mb-40 pl-lg-70">
+
+            <div className="col-lg-3 offset-lg-2 col-md-6">
+              <div className="footer-widget service-nav-widget mb-40 pl-lg-40">
                 <h4 className="widget-title">Tours</h4>
                 <div className="footer-content">
-                  <ul className="footer-widget-nav">
+                  <ul className="footer-widget-nav" style={{ width: '100%' }}>
                     <li>
-                      <Link href="#">Caravan Soler </Link>
+                      <Link href="/west-tour-madeira">West Tour</Link>
                     </li>
                     <li>
-                      <a href="#">Family Tent Camping</a>
+                      <Link href="/east-tour-madeira">East Tour</Link>
                     </li>
                     <li>
-                      <a href="#">Classic Tent Camping</a>
+                      <Link href="/private-tour-madeira">Private Tour</Link>
                     </li>
                     <li>
-                      <a href="#">Wild Tent Camping</a>
+                      <Link href="/wine-tour-madeira">Wine Tasting Tour</Link>
                     </li>
                     <li>
-                      <a href="#">Small Cabin Wood</a>
-                    </li>
-                  </ul>
-                  <ul className="footer-widget-nav">
-                    <li>
-                      <a href="#">Need a Career ?</a>
+                      <Link href="/rock-climbing-madeira">Climbing Tour</Link>
                     </li>
                     <li>
-                      <a href="#">Latest News &amp; Blog</a>
-                    </li>
-                    <li>
-                      <a href="#">Core Features</a>
-                    </li>
-                    <li>
-                      <a href="#">Meet Our teams</a>
+                      <Link href="/climb-pico-das-torres">
+                        Pico Das Torres Summit
+                      </Link>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
+
+            <div className="col-lg-3 col-md-6">
+              <div className="footer-widget service-nav-widget mb-40 pl-lg-40">
+                <h4 className="widget-title">Links</h4>
+                <div className="footer-content">
+                  <ul className="footer-widget-nav" style={{ width: '100%' }}>
+                    <li>
+                      <Link href="/privacy-policy">Privacy Policy</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/*<div className="col-lg-4 col-md-6">
               <div className="footer-widget footer-newsletter-widget mb-40 pl-lg-100">
                 <h4 className="widget-title">Newsletter</h4>
                 <div className="footer-content">
@@ -90,7 +92,7 @@ export default function Footer(props: FooterProps) {
                   </form>
                 </div>
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
         <div className="footer-copyright">
@@ -98,8 +100,8 @@ export default function Footer(props: FooterProps) {
             <div className="col-lg-6">
               <div className="footer-text">
                 <p>
-                  Copy@ 2023 <span style={{ color: '#F7921E' }}>GoWilds</span>,
-                  All Right Reserved
+                  Copy@ {new Date().getFullYear()}{' '}
+                  <span style={{ color: '#F7921E' }}>Remote Madeira</span>
                 </p>
               </div>
             </div>
@@ -107,13 +109,7 @@ export default function Footer(props: FooterProps) {
               <div className="footer-nav float-lg-end">
                 <ul>
                   <li>
-                    <a href="#">Setting &amp; privacy</a>
-                  </li>
-                  <li>
-                    <a href="#">Faqs</a>
-                  </li>
-                  <li>
-                    <a href="#">Support</a>
+                    <Link href="#">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>

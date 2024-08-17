@@ -8,8 +8,8 @@ type Props = {
   initial: Parameters<typeof useSettings>[0]
 }
 
-export default function NavbarPreview(props: Props) {
-  const { data } = useSettings(props.initial)
+export default function FooterPreview({ initial }: Props) {
+  const { data } = useSettings(initial)
 
   return <FooterLayout data={data!} />
 }

@@ -27,6 +27,12 @@ export const homePageQuery = groq`
   }
 `
 
+export const privacyPolicyPageQuery = groq`
+*[_type == "privacyPolicyPage"][0]{
+  body
+}
+`
+
 export const testimonialsQuery = groq`
   *[_type == "testimonial"]{
     name,
@@ -43,21 +49,21 @@ export const pagesBySlugQuery = groq`
     "slug": slug.current,
   }
 `
-export const footerQuery = groq`
-  *[_type == "footer"][0]{
-    about
-  }
-`
 
 export const settingsQuery = groq`
-  *[_type == "settings"][0]{
-    footer,
-    logo,
-    menuItems[]->{
-      _type,
-      "slug": slug.current,
-      title
+  {
+    "settings": *[_type == "settings"][0]{
+      footer,
+      logo,
+      menuItems[]->{
+        _type,
+        "slug": slug.current,
+        title
+      },
+      ogImage
     },
-    ogImage
+    "footer": *[_type == "footer"][0]{
+      about
+    }
   }
 `
