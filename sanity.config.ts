@@ -29,6 +29,7 @@ import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
 
 import { structure } from './sanity/structure'
 import testimonial from './sanity/schemas/documents/testimonial'
+import footer from './sanity/schemas/singletons/footer'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Remote Madeira'
 
@@ -64,6 +65,7 @@ export default defineConfig({
       picoPage,
       settings,
       testimonial,
+      footer,
 
       // Documents
       duration,

@@ -94,6 +94,16 @@ export const structure: StructureResolver = (S, context) =>
             .title('Settings'),
         ),
 
+      S.listItem()
+        .schemaType('footer')
+        .title('Footer')
+        .child(
+          S.document()
+            .schemaType('footer')
+            .documentId('footer')
+            .title('Footer'),
+        ),
+
       // S.listItem()
       //   .schemaType('header')
       //   .title('Header')

@@ -43,6 +43,11 @@ export const pagesBySlugQuery = groq`
     "slug": slug.current,
   }
 `
+export const footerQuery = groq`
+  *[_type == "footer"][0]{
+    about
+  }
+`
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{

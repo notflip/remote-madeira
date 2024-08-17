@@ -28,9 +28,9 @@ export default function FeatureSection({
         <div className="row">
           {featureItems &&
             featureItems.map((item, index) => (
-              <div className="col-lg-6 col-md-12 mb-30" key={index}>
+              <div className="col-lg-6 col-xl-4 col-md-12 mb-30" key={index}>
                 <div className="fancy-icon-box mb-30 wow fadeInUp d-flex h-100">
-                  <div className="icon">
+                  <div className="icon text-[#63ab45]">
                     <Icon icon={item.icon} />
                   </div>
                   <div className="text">
