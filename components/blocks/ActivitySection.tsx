@@ -62,10 +62,10 @@ export default function ActivitySection({
                       >
                         <div className="row align-items-center">
                           <div className="col-md-6">
-                            <div className="activity-content-box pl-lg-40">
+                            <div className="activity-content-box pl-lg-40 pb-32">
                               <h3 className="title">{item.subtitle}</h3>
                               <p>{item.description}</p>
-                              <ul className="check-list">
+                              {/*<ul className="check-list">
                                 <li>
                                   <i className="fas fa-badge-check" />
                                   Family Camping
@@ -78,7 +78,7 @@ export default function ActivitySection({
                                   <i className="fas fa-badge-check" />
                                   Wild Camping
                                 </li>
-                              </ul>
+                              </ul>*/}
                             </div>
                           </div>
                           <div className="col-md-6">

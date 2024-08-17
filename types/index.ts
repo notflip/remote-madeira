@@ -38,6 +38,8 @@ export interface HomePagePayload {
   aboutItems: Array<any>
   activityTitle: string
   activityItems: Array<any>
+  featureTitle: string,
+  featureItems: Array<any>
 }
 
 export interface PagePayload {

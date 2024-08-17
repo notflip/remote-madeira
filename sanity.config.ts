@@ -8,6 +8,7 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { IconManager } from 'sanity-plugin-icon-manager'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
@@ -17,14 +18,15 @@ import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
+import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
 import homePage from '@/sanity/schemas/singletons/homePage'
+import picoPage from '@/sanity/schemas/singletons/picoPage'
+import privateTourPage from '@/sanity/schemas/singletons/privateTourPage'
+import rockClimbingPage from '@/sanity/schemas/singletons/rockClimbingPage'
 import settings from '@/sanity/schemas/singletons/settings'
 import westTourPage from '@/sanity/schemas/singletons/westTourPage'
-import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
-import privateTourPage from '@/sanity/schemas/singletons/privateTourPage'
 import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
-import rockClimbingPage from '@/sanity/schemas/singletons/rockClimbingPage'
-import picoPage from '@/sanity/schemas/singletons/picoPage'
+
 import { structure } from './sanity/structure'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Remote Madeira'
@@ -73,6 +75,10 @@ export default defineConfig({
   },
 
   plugins: [
+    IconManager({
+      availableCollections: ['material-symbols'],
+    }),
+
     structureTool({
       structure,
     }),
@@ -87,12 +93,7 @@ export default defineConfig({
     }),
 
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([
-      'homePage',
-      'eastTourPage',
-      'westTourPage',
-      'settings'
-    ]),
+    singletonPlugin(['homePage', 'eastTourPage', 'westTourPage', 'settings']),
 
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

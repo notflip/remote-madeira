@@ -22,6 +22,11 @@ export default defineType({
       title: 'Activity Section',
       options: { collapsible: true, collapsed: true },
     },
+    {
+      name: 'features',
+      title: 'Features Section',
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     defineField({
@@ -225,6 +230,45 @@ export default defineType({
         }),
       ],
       fieldset: 'activity',
+    }),
+
+    defineField({
+      name: 'featureTitle',
+      type: 'string',
+      title: 'Features Title',
+      validation: (rule) => rule.required(),
+      fieldset: 'features',
+    }),
+
+    // Services Section
+    defineField({
+      name: 'featureItems',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'featureItem',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              type: 'string',
+              title: 'Feature Item Title',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'description',
+              type: 'string',
+              validation: (rule) => rule.required().max(200),
+            }),
+            defineField({
+              type: 'icon.manager',
+              name: 'icon',
+              title: 'Icon',
+            }),
+          ],
+        }),
+      ],
+      fieldset: 'features',
     }),
   ],
   preview: {

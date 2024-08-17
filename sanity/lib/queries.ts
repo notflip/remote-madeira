@@ -16,6 +16,10 @@ export const homePageQuery = groq`
     },
     activityTitle,
     activityItems,
+    featureItems[] {
+      ...,
+      "icon": icon.icon
+    }
   }
 `
 
