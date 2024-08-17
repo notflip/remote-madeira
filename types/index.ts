@@ -38,8 +38,15 @@ export interface HomePagePayload {
   aboutItems: Array<any>
   activityTitle: string
   activityItems: Array<any>
-  featureTitle: string,
+  featureTitle: string
   featureItems: Array<any>
+  ctaTitle: string
+  ctaImage: Image
+  testimonialTitle: string
+  testimonialItems: Array<{
+    text: string
+    name: string
+  }>
 }
 
 export interface PagePayload {
@@ -50,19 +57,9 @@ export interface PagePayload {
   slug?: string
 }
 
-export interface ProjectPayload {
-  client?: string
-  coverImage?: Image
-  description?: PortableTextBlock[]
-  duration?: {
-    start?: string
-    end?: string
-  }
-  overview?: PortableTextBlock[]
-  site?: string
-  slug: string
-  tags?: string[]
-  title?: string
+export interface TestimonialPayload {
+  name: string
+  text: string
 }
 
 export interface SettingsPayload {

@@ -80,6 +80,20 @@ export const structure: StructureResolver = (S, context) =>
         ),
       S.divider(),
 
+      S.documentTypeListItem('testimonial').title('Testimonials'),
+
+      S.divider(),
+
+      S.listItem()
+        .schemaType('settings')
+        .title('Settings')
+        .child(
+          S.document()
+            .schemaType('settings')
+            .documentId('settings')
+            .title('Settings'),
+        ),
+
       // S.listItem()
       //   .schemaType('header')
       //   .title('Header')

@@ -9,6 +9,7 @@ import {
   pagesBySlugQuery,
   projectBySlugQuery,
   settingsQuery,
+  testimonialsQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -16,6 +17,7 @@ import {
   PagePayload,
   ProjectPayload,
   SettingsPayload,
+  TestimonialPayload,
 } from '@/types'
 
 const serverClient = client.withConfig({
@@ -78,11 +80,13 @@ export function loadHomePage() {
   )
 }
 
-export function loadProject(slug: string) {
-  return loadQuery<ProjectPayload | null>(
-    projectBySlugQuery,
-    { slug },
-    { next: { tags: [`project:${slug}`] } },
+export function loadTestimonials() {
+  return loadQuery<TestimonialPayload | null>(
+    testimonialsQuery,
+    {},
+    {
+      next: { tags: [`testimonials`] },
+    },
   )
 }
 

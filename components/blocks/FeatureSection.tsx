@@ -11,7 +11,7 @@ export default function FeatureSection({
   data,
   encodeDataAttribute,
 }: FeatureSectionProps) {
-  const { featureItems } = data ?? {}
+  const { featureTitle, featureItems } = data ?? {}
 
   return (
     <section className="features-section py-24">
@@ -20,7 +20,7 @@ export default function FeatureSection({
           <div className="col-xl-8 col-lg-10">
             <div className="section-title text-center mb-60 wow fadeInDown">
               <span className="sub-title">Services</span>
-              <h2>We offer some of the best servies on the island</h2>
+              <h2>{featureTitle}</h2>
             </div>
           </div>
         </div>

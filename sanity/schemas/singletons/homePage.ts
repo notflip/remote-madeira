@@ -27,6 +27,16 @@ export default defineType({
       title: 'Features Section',
       options: { collapsible: true, collapsed: true },
     },
+    {
+      name: 'cta',
+      title: 'Call To Action Section',
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: 'testimonials',
+      title: 'Testimonials Section',
+      options: { collapsible: true, collapsed: true },
+    },
   ],
   fields: [
     defineField({
@@ -269,6 +279,32 @@ export default defineType({
         }),
       ],
       fieldset: 'features',
+    }),
+
+    // Cta Section
+    defineField({
+      name: 'ctaTitle',
+      type: 'string',
+      validation: (rule) => rule.required(),
+      fieldset: 'cta',
+    }),
+    defineField({
+      name: 'ctaImage',
+      title: 'CTA Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (rule) => rule.required(),
+      fieldset: 'cta',
+    }),
+
+    // Testimonial Section
+    defineField({
+      name: 'testimonialTitle',
+      type: 'string',
+      validation: (rule) => rule.required(),
+      fieldset: 'testimonials',
     }),
   ],
   preview: {

@@ -16,10 +16,21 @@ export const homePageQuery = groq`
     },
     activityTitle,
     activityItems,
+    featureTitle,
     featureItems[] {
       ...,
       "icon": icon.icon
-    }
+    },
+    ctaTitle,
+    ctaImage,
+    testimonialTitle,
+  }
+`
+
+export const testimonialsQuery = groq`
+  *[_type == "testimonial"]{
+    name,
+    text
   }
 `
 
@@ -30,21 +41,6 @@ export const pagesBySlugQuery = groq`
     overview,
     title,
     "slug": slug.current,
-  }
-`
-
-export const projectBySlugQuery = groq`
-  *[_type == "project" && slug.current == $slug][0] {
-    _id,
-    client,
-    coverImage,
-    description,
-    duration,
-    overview,
-    site,
-    "slug": slug.current,
-    tags,
-    title,
   }
 `
 

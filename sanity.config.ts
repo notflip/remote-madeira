@@ -28,6 +28,7 @@ import westTourPage from '@/sanity/schemas/singletons/westTourPage'
 import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
 
 import { structure } from './sanity/structure'
+import testimonial from './sanity/schemas/documents/testimonial'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Remote Madeira'
 
@@ -62,6 +63,7 @@ export default defineConfig({
       rockClimbingPage,
       picoPage,
       settings,
+      testimonial,
 
       // Documents
       duration,
@@ -93,7 +95,7 @@ export default defineConfig({
     }),
 
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin(['homePage', 'eastTourPage', 'westTourPage', 'settings']),
+    // singletonPlugin(['homePage', 'eastTourPage', 'westTourPage', 'settings']),
 
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
