@@ -7,7 +7,6 @@ import { client } from '@/sanity/lib/client'
 import {
   homePageQuery,
   pagesBySlugQuery,
-  privacyPolicyPageQuery,
   settingsQuery,
   testimonialsQuery,
 } from '@/sanity/lib/queries'
@@ -67,7 +66,7 @@ export function loadSettings() {
   return loadQuery<SettingsPayload>(
     settingsQuery,
     {},
-    { next: { tags: ['settings', 'homePage', 'page', 'project'] } },
+    { next: { tags: ['settings', 'homePage', 'privacyPolicyPage'] } },
   )
 }
 
@@ -84,7 +83,7 @@ export function loadTestimonials() {
     testimonialsQuery,
     {},
     {
-      next: { tags: [`testimonials`] },
+      next: { tags: [`testimonial`] },
     },
   )
 }

@@ -13,7 +13,7 @@ export default async function Tours() {
   const initial = await loadQuery<any | null>(
     toursQuery,
     {},
-    { next: { tags: ['page:tours'] } },
+    { next: { tags: ['tour'] } },
   )
 
   if (draftMode().isEnabled) {
