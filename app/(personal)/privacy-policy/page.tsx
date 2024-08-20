@@ -13,7 +13,7 @@ export default async function PrivacyPolicy() {
   const initial = await loadQuery<any | null>(
     privacyPolicyPageQuery,
     {},
-    { next: { tags: ['page:privacy-policy'] } },
+    { next: { tags: ['privacyPolicyPage'] } },
   )
   if (draftMode().isEnabled) {
     return <PrivacyPolicyPagePreview initial={initial} />

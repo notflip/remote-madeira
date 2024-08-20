@@ -79,14 +79,6 @@ export function loadHomePage() {
   )
 }
 
-export function loadPrivacyPolicyPage() {
-  return loadQuery<any | null>(
-    privacyPolicyPageQuery,
-    {},
-    { next: { tags: ['privacyPolicyPage'] } },
-  )
-}
-
 export function loadTestimonials() {
   return loadQuery<TestimonialPayload | null>(
     testimonialsQuery,
