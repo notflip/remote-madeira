@@ -1,12 +1,6 @@
 import type { PortableTextBlock } from 'next-sanity'
 import type { Image } from 'sanity'
 
-export interface MenuItem {
-  _type: string
-  slug?: string
-  title?: string
-}
-
 export interface MilestoneItem {
   description?: string
   duration?: {
@@ -66,7 +60,6 @@ export interface SettingsPayload {
   settings: {
     logo: Image
     footer?: PortableTextBlock[]
-    menuItems?: MenuItem[]
     ogImage?: Image
   }
   footer: {

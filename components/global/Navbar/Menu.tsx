@@ -3,6 +3,10 @@
 import Link from 'next/link'
 import { Fragment, useState } from 'react'
 
+interface MenuProps {
+  items: any[]
+}
+
 const Menu = () => {
   return (
     <Fragment>
@@ -18,101 +22,34 @@ const DeskTopMenu = () => {
     <Fragment>
       <nav className="main-menu d-none d-xl-block">
         <ul>
+          <li className="menu-item">
+            <Link href="/">Home</Link>
+          </li>
           <li className="menu-item has-children">
-            <Link href="#">
-              Home
+            <Link href="/tours">
+              All Tours
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
             </Link>
             <ul className="sub-menu">
               <li>
-                <Link href="/">Home 01</Link>
+                <Link href="/west-tour-madeira">West Tour Madeira</Link>
               </li>
               <li>
-                <Link href="index-2">Home 02</Link>
+                <Link href="/east-tour-madeira">East Tour Madeira</Link>
               </li>
               <li>
-                <Link href="index-3">Home 03</Link>
+                <Link href="/private-tour-madeira">Private Tour Madeira</Link>
               </li>
               <li>
-                <Link href="index-4">Home 04</Link>
-              </li>
-            </ul>
-          </li>
-          <li className="menu-item has-children">
-            <a href="#">
-              Tours
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="tour">Tours</Link>
+                <Link href="/wine-tour-madeira">Wine Tour Madeira</Link>
               </li>
               <li>
-                <Link href="tour-details">Tours Details</Link>
-              </li>
-            </ul>
-          </li>
-          <li className="menu-item has-children">
-            <a href="#">
-              Destination
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="destination">Destination</Link>
+                <Link href="/rock-climbing-madeira">Rock Climbing Madeira</Link>
               </li>
               <li>
-                <Link href="destination-details">Destination Details</Link>
-              </li>
-            </ul>
-          </li>
-          <li className="menu-item has-children">
-            <a href="#">
-              Blog
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="blog-list">Blog List</Link>
-              </li>
-              <li>
-                <Link href="blog-details">Blog Details</Link>
-              </li>
-            </ul>
-          </li>
-          <li className="menu-item has-children">
-            <a href="#">
-              Pages
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="about">About Us</Link>
-              </li>
-              <li>
-                <Link href="gallery">Our Gallery</Link>
-              </li>
-              <li>
-                <Link href="events">Our Events</Link>
-              </li>
-              <li>
-                <Link href="shop">Our Shop</Link>
-              </li>
-              <li>
-                <Link href="product-details">Product Details</Link>
-              </li>
-              <li>
-                <Link href="contact">Contact</Link>
+                <Link href="/climb-pico-das-torres">Pico Das Torres</Link>
               </li>
             </ul>
           </li>

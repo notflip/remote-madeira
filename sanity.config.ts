@@ -14,10 +14,6 @@ import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import * as resolve from '@/sanity/plugins/resolve'
 import { singletonPlugin } from '@/sanity/plugins/settings'
 import page from '@/sanity/schemas/documents/page'
-import project from '@/sanity/schemas/documents/project'
-import duration from '@/sanity/schemas/objects/duration'
-import milestone from '@/sanity/schemas/objects/milestone'
-import timeline from '@/sanity/schemas/objects/timeline'
 import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
 import homePage from '@/sanity/schemas/singletons/homePage'
 import picoPage from '@/sanity/schemas/singletons/picoPage'
@@ -27,10 +23,11 @@ import settings from '@/sanity/schemas/singletons/settings'
 import westTourPage from '@/sanity/schemas/singletons/westTourPage'
 import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
 
-import { structure } from './sanity/structure'
 import testimonial from './sanity/schemas/documents/testimonial'
+import tour from './sanity/schemas/documents/tour'
 import footer from './sanity/schemas/singletons/footer'
 import privacyPolicyPage from './sanity/schemas/singletons/privacyPolicyPage'
+import { structure } from './sanity/structure'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Remote Madeira'
 
@@ -71,13 +68,8 @@ export default defineConfig({
       footer,
 
       // Documents
-      duration,
       page,
-      project,
-
-      // Objects
-      milestone,
-      timeline,
+      tour,
     ],
   },
 

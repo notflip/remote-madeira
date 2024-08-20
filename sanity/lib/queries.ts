@@ -33,6 +33,18 @@ export const privacyPolicyPageQuery = groq`
 }
 `
 
+export const toursQuery = groq`
+*[_type == "tour"] | order(order asc) {
+  title,
+  "slug": slug.current, 
+  description,
+  coverImage,
+  region,
+  maxPersons,
+  price
+}
+`
+
 export const testimonialsQuery = groq`
   *[_type == "testimonial"]{
     name,
@@ -55,11 +67,6 @@ export const settingsQuery = groq`
     "settings": *[_type == "settings"][0]{
       footer,
       logo,
-      menuItems[]->{
-        _type,
-        "slug": slug.current,
-        title
-      },
       ogImage
     },
     "footer": *[_type == "footer"][0]{

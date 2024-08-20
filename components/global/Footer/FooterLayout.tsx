@@ -109,7 +109,7 @@ export default function Footer(props: any) {
               <div className="footer-nav float-lg-end">
                 <ul>
                   <li>
-                    <Link href="#">Privacy Policy</Link>
+                    <Link href="/privacy-policy">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>

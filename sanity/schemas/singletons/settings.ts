@@ -16,42 +16,6 @@ export default defineType({
         hotspot: true,
       },
     }),
-
-    defineField({
-      name: 'menuItems',
-      title: 'Menu Item list',
-      description: 'Links displayed on the header of your site.',
-      type: 'array',
-      of: [
-        {
-          title: 'Reference',
-          type: 'reference',
-          to: [
-            {
-              type: 'homePage',
-            },
-            {
-              type: 'westTourPage',
-            },
-            {
-              type: 'eastTourPage',
-            },
-            {
-              type: 'privateTourPage',
-            },
-            {
-              type: 'wineTourPage',
-            },
-            {
-              type: 'rockClimbingPage',
-            },
-            {
-              type: 'picoPage',
-            },
-          ],
-        },
-      ],
-    }),
     defineField({
       name: 'footer',
       description:

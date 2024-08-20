@@ -89,6 +89,16 @@ export const structure: StructureResolver = (S, context) =>
         ),
       S.divider(),
 
+      S.listItem()
+        .title('Tours')
+        .child(
+          S.documentTypeList('tour')
+            .title('Tours')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }]),
+        ),
+
+      S.divider(),
+
       S.documentTypeListItem('testimonial').title('Testimonials'),
 
       S.divider(),

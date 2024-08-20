@@ -64,7 +64,7 @@ const Header = ({ logo }: HeaderProps) => {
               <Menu />
 
               <div className="menu-button mt-40 d-xl-none">
-                <Link href="/contact" className="main-btn secondary-btn">
+                <Link href="#" className="main-btn secondary-btn">
                   Book Now
                   <i className="fas fa-paper-plane" />
                 </Link>
@@ -72,7 +72,7 @@ const Header = ({ logo }: HeaderProps) => {
             </div>
             <div className="nav-right-item">
               <div className="menu-button d-xl-block d-none">
-                <Link href="/contact" className="main-btn primary-btn">
+                <Link href="#" className="main-btn primary-btn">
                   Book Now
                   <i className="fas fa-paper-plane" />
                 </Link>
