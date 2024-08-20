@@ -10,7 +10,11 @@ const ToursPagePreview = dynamic(
 )
 
 export default async function Tours() {
-  const initial = await loadQuery<any | null>(toursQuery, {})
+  const initial = await loadQuery<any | null>(
+    toursQuery,
+    {},
+    { next: { tags: ['page:tours'] } },
+  )
 
   if (draftMode().isEnabled) {
     return <ToursPagePreview initial={initial} />

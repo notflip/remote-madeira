@@ -10,8 +10,11 @@ const PrivacyPolicyPagePreview = dynamic(
 )
 
 export default async function PrivacyPolicy() {
-  const initial = await loadQuery<any | null>(privacyPolicyPageQuery, {})
-
+  const initial = await loadQuery<any | null>(
+    privacyPolicyPageQuery,
+    {},
+    { next: { tags: ['page:privacy-policy'] } },
+  )
   if (draftMode().isEnabled) {
     return <PrivacyPolicyPagePreview initial={initial} />
   }
