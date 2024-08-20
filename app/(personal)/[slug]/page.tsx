@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation'
 import { toPlainText } from 'next-sanity'
 
 import { Page } from '@/components/pages/page/Page'
-import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
 import { loadPage } from '@/sanity/loader/loadQuery'
 const PagePreview = dynamic(() => import('@/components/pages/page/PagePreview'))
 
@@ -25,10 +24,6 @@ export async function generateMetadata(
       ? toPlainText(page.overview)
       : (await parent).description,
   }
-}
-
-export function generateStaticParams() {
-  return generateStaticSlugs('page')
 }
 
 export default async function PageSlugRoute({ params }: Props) {
