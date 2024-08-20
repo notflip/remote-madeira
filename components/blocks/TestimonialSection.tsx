@@ -6,7 +6,7 @@ import Slider from '@ant-design/react-slick'
 
 export interface TestimonialSectionProps {
   data: Partial<HomePagePayload> | null
-  testimonials: TestimonialPayload | null
+  testimonials: any
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
