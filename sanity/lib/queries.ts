@@ -36,6 +36,7 @@ export const privacyPolicyPageQuery = groq`
 export const toursQuery = groq`
 *[_type == "tour"] | order(order asc) {
   title,
+  subtitle,
   "slug": slug.current, 
   description,
   coverImage,

@@ -14,7 +14,7 @@ export default async function IndexRoute() {
   const { data: testimonials } = await loadTestimonials()
 
   if (draftMode().isEnabled) {
-    return <HomePagePreview initial={initial} />
+    return <HomePagePreview initial={initial} testimonials={testimonials} />
   }
 
   if (!initial.data) {

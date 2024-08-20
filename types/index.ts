@@ -43,6 +43,16 @@ export interface HomePagePayload {
   }>
 }
 
+export interface Tours {
+  title: string
+  subtitle: string
+  slug: string
+  description: string
+  coverImage: any
+  region?: string
+  maxPersons?: string
+  price?: string
+}
 export interface PagePayload {
   body?: PortableTextBlock[]
   name?: string

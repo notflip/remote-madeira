@@ -5,7 +5,6 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
-  footerQuery,
   homePageQuery,
   pagesBySlugQuery,
   privacyPolicyPageQuery,
@@ -72,15 +71,11 @@ export function loadSettings() {
   )
 }
 
-export function loadFooter() {
-  return loadQuery<any>(footerQuery, {}, { next: { tags: ['footer'] } })
-}
-
 export function loadHomePage() {
   return loadQuery<HomePagePayload | null>(
     homePageQuery,
     {},
-    { next: { tags: ['homePage', 'project'] } },
+    { next: { tags: ['homePage'] } },
   )
 }
 

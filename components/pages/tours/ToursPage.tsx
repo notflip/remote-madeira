@@ -1,9 +1,11 @@
-import ImageBox from '@/components/shared/ImageBox'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
+import ImageBox from '@/components/shared/ImageBox'
+import { Tours } from '@/types'
+
 export interface ToursPageProps {
-  tours: any[]
+  tours: Tours[] | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 export default function ToursPage({

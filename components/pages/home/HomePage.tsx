@@ -10,7 +10,7 @@ import TestimonialSection from '@/components/blocks/TestimonialSection'
 
 export interface HomePageProps {
   data: HomePagePayload | null
-  testimonials: TestimonialPayload | null
+  testimonials: any
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 

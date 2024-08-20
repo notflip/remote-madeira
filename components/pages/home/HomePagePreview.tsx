@@ -10,11 +10,13 @@ import HomePage from './HomePage'
 
 type Props = {
   initial: QueryResponseInitial<HomePagePayload | null>
+  testimonials: any
 }
 
 export default function HomePagePreview(props: Props) {
-  const { initial } = props
-  const { data, encodeDataAttribute } = useQuery<HomePagePayload | null>(
+  const { initial, testimonials } = props
+
+  const { data } = useQuery<HomePagePayload | null>(
     homePageQuery,
     {},
     { initial },
@@ -28,5 +30,5 @@ export default function HomePagePreview(props: Props) {
     )
   }
 
-  return <HomePage data={data} encodeDataAttribute={encodeDataAttribute} />
+  return <HomePage data={data} testimonials={testimonials} />
 }
