@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     loadHomePage(),
   ])
 
-  const ogImage = urlForOpenGraphImage(settings?.ogImage)
+  const ogImage = urlForOpenGraphImage(settings?.settings.ogImage)
   return {
     title: homePage?.title
       ? {
