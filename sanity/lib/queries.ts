@@ -27,6 +27,17 @@ export const homePageQuery = groq`
   }
 `
 
+export const westTourPageQuery = groq`
+  *[_type == "westTourPage"][0] {
+    _id,
+  }
+`
+export const eastTourPageQuery = groq`
+  *[_type == "eastTourPage"][0] {
+    _id,
+  }
+`
+
 export const privacyPolicyPageQuery = groq`
 *[_type == "privacyPolicyPage"][0]{
   body
@@ -50,16 +61,6 @@ export const testimonialsQuery = groq`
   *[_type == "testimonial"]{
     name,
     text
-  }
-`
-
-export const pagesBySlugQuery = groq`
-  *[_type == "page" && slug.current == $slug][0] {
-    _id,
-    body,
-    overview,
-    title,
-    "slug": slug.current,
   }
 `
 

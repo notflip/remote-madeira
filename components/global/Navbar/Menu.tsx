@@ -27,7 +27,7 @@ const DeskTopMenu = () => {
           </li>
           <li className="menu-item has-children">
             <Link href="/tours">
-              All Tours
+              Tours
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
