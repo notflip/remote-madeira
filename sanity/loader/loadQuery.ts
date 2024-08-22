@@ -87,11 +87,3 @@ export function loadTestimonials() {
     },
   )
 }
-
-export function loadPage(slug: string) {
-  return loadQuery<PagePayload | null>(
-    pagesBySlugQuery,
-    { slug },
-    { next: { tags: [`page:${slug}`] } },
-  )
-}

@@ -8,7 +8,7 @@ import { token } from '@/sanity/lib/token'
 // Used in `generateStaticParams`
 export function generateStaticSlugs(type: string) {
   // Not using loadQuery as it's optimized for fetching in the RSC lifecycle
-  const staticParams = client
+  return client
     .withConfig({
       token,
       perspective: 'published',
@@ -24,7 +24,4 @@ export function generateStaticSlugs(type: string) {
         },
       },
     )
-
-  console.log('[Static Params] ', staticParams)
-  return staticParams
 }
