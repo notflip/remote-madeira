@@ -51,7 +51,7 @@ export default async function IndexRoute({
   return (
     <>
       <Suspense>
-        <Header logo={data.settings.logo} />
+        <Header settings={data.settings} />
       </Suspense>
       <div>
         <Suspense>{children}</Suspense>

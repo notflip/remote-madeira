@@ -10,11 +10,25 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
+      name: 'mail',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'phone',
+      type: 'string',
+    }),
+    defineField({
+      name: 'address',
+      type: 'text',
+    }),
+    defineField({
       name: 'logo',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+    }),
+    defineField({
+      name: 'logoLarge',
+      type: 'image',
     }),
     defineField({
       name: 'footer',

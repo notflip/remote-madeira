@@ -69,6 +69,10 @@ export const settingsQuery = groq`
     "settings": *[_type == "settings"][0]{
       footer,
       logo,
+      logoLarge,
+      mail,
+      phone,
+      address,
       ogImage
     },
     "footer": *[_type == "footer"][0]{

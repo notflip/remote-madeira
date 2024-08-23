@@ -4,10 +4,10 @@ import Link from 'next/link'
 export default function Footer(props: any) {
   const { data } = props
 
-  const { logo } = data.settings
+  const { logoLarge } = data.settings
 
   const logoUrl =
-    logo && urlForImage(logo)?.height(120).width(175).fit('crop').url()
+    logoLarge && urlForImage(logoLarge)?.height(120).width(175).fit('crop').url()
 
   return (
     <footer className="main-footer black-bg">
