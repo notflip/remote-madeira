@@ -1,5 +1,5 @@
-import { DocumentIcon, ImageIcon, LinkIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { DocumentIcon, LinkIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
 
 import { SlugInput } from '@/sanity/components/SlugInput'
 
@@ -37,9 +37,8 @@ export default defineType({
       name: 'slug',
       title: 'Address on the website',
       description:
-        "Defines the URL of the page in the website, once set, don't change this unless you know what you're doing",
+        "Defines the URL of the page, don't change this unless you know what you're doing",
       options: {
-        source: 'title',
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
       components: {

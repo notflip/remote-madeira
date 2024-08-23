@@ -7,7 +7,7 @@ export interface PrivacyPolicyPageProps {
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
-export default function WestTourMadeiraPage({
+export default function TourPage({
   data,
   encodeDataAttribute,
 }: PrivacyPolicyPageProps) {

@@ -133,7 +133,9 @@ const Header = ({ settings }: HeaderProps) => {
                   <img src={logoUrl} alt="Logo" />
                 </Link>
               </div>
+
               <Menu />
+
               <div className="menu-button mt-40 d-xl-none">
                 <Link legacyBehavior href="#">
                   <a className="main-btn secondary-btn">
@@ -143,7 +145,6 @@ const Header = ({ settings }: HeaderProps) => {
                 </Link>
               </div>
             </div>
-            {/*====== Nav Right Item ======*/}
             <div className="nav-right-item">
               <div className="menu-button d-xl-block d-none">
                 <Link href="#" className="main-btn primary-btn">

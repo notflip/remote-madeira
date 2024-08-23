@@ -6,17 +6,11 @@ import { draftMode } from 'next/headers'
 import { client } from '@/sanity/lib/client'
 import {
   homePageQuery,
-  pagesBySlugQuery,
   settingsQuery,
   testimonialsQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
-import {
-  HomePagePayload,
-  PagePayload,
-  SettingsPayload,
-  TestimonialPayload,
-} from '@/types'
+import { HomePagePayload, SettingsPayload, TestimonialPayload } from '@/types'
 
 const serverClient = client.withConfig({
   token,

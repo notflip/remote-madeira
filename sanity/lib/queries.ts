@@ -27,33 +27,9 @@ export const homePageQuery = groq`
   }
 `
 
-export const westTourPageQuery = groq`
-  *[_type == "westTourPage"][0] {
-    _id,
-  }
-`
-export const eastTourPageQuery = groq`
-  *[_type == "eastTourPage"][0] {
-    _id,
-  }
-`
-
 export const privacyPolicyPageQuery = groq`
 *[_type == "privacyPolicyPage"][0]{
   body
-}
-`
-
-export const toursQuery = groq`
-*[_type == "tour"] | order(order asc) {
-  title,
-  subtitle,
-  "slug": slug.current, 
-  description,
-  coverImage,
-  region,
-  maxPersons,
-  price
 }
 `
 
@@ -79,4 +55,30 @@ export const settingsQuery = groq`
       about
     }
   }
+`
+
+export const toursQuery = groq`
+*[_type == "tour"] | order(order asc) {
+  title,
+  subtitle,
+  "slug": slug.current, 
+  description,
+  coverImage,
+  region,
+  maxPersons,
+  price
+}
+`
+
+export const tourQuery = groq`
+*[_type == "tour" && slug.current == $slug] | order(order asc) [0] {
+  title,
+  subtitle,
+  "slug": slug.current, 
+  description,
+  coverImage,
+  region,
+  maxPersons,
+  price
+}
 `

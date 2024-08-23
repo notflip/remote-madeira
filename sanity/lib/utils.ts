@@ -29,7 +29,7 @@ export function resolveHref(
     case 'homePage':
       return '/'
     case 'westTourPage':
-      return '/west-tour-madeira'
+      return '/tour'
     case 'eastTourPage':
       return '/east-tour-madeira'
     case 'privateTourPage':
