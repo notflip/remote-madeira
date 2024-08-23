@@ -2,7 +2,7 @@ import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 import TourSliderSection from '@/components/blocks/TourSliderSection'
 
-export interface PrivacyPolicyPageProps {
+export interface TourPageProps {
   data: any
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
@@ -10,13 +10,13 @@ export interface PrivacyPolicyPageProps {
 export default function TourPage({
   data,
   encodeDataAttribute,
-}: PrivacyPolicyPageProps) {
-  const { body } = data ?? {}
+}: TourPageProps) {
+  console.log(data)
 
   return (
     <section className="place-details-section">
       <div className="place-slider-area overflow-hidden wow fadeInUp">
-        <TourSliderSection />
+        <TourSliderSection images={data.images} />
       </div>
       <div className="container">
         {/*=== Tour Details Wrapper ===*/}

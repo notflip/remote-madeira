@@ -5,13 +5,11 @@
 
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
-import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { IconManager } from 'sanity-plugin-icon-manager'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
-import * as resolve from '@/sanity/plugins/resolve'
 import { singletonPlugin } from '@/sanity/plugins/settings'
 import page from '@/sanity/schemas/documents/page'
 import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
@@ -82,14 +80,14 @@ export default defineConfig({
       structure,
     }),
 
-    presentationTool({
-      resolve,
-      previewUrl: {
-        previewMode: {
-          enable: '/api/draft',
-        },
-      },
-    }),
+    // presentationTool({
+    //   resolve,
+    //   previewUrl: {
+    //     previewMode: {
+    //       enable: '/api/draft',
+    //     },
+    //   },
+    // }),
 
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([

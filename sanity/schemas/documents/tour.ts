@@ -54,6 +54,30 @@ export default defineType({
     }),
 
     defineField({
+      name: 'images',
+      type: 'array',
+      validation: (rule) => rule.required().min(4),
+      of: [
+        defineField({
+          name: 'image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              type: 'string',
+              title: 'Alt',
+              description:
+                '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
+            }),
+          ],
+        }),
+      ],
+    }),
+
+    defineField({
       name: 'region',
       title: 'Region',
       type: 'string',

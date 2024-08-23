@@ -76,6 +76,11 @@ export const tourQuery = groq`
   subtitle,
   "slug": slug.current, 
   description,
+  images[] {
+     alt,
+    asset,
+    "dimensions": asset->metadata.dimensions
+  },
   coverImage,
   region,
   maxPersons,

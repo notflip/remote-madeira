@@ -1,13 +1,16 @@
 'use client'
 
+import Image from 'next/image'
 import Slider from '@ant-design/react-slick'
+import { urlForImage } from '@/sanity/lib/utils'
 
 const placeSlider = {
   dots: false,
   arrows: false,
   infinite: true,
   speed: 800,
-  autoplay: true,
+  // @todo uncomment for live
+  // autoplay: true,
   variableWidth: true,
   centerMode: true,
   slidesToShow: 2,
@@ -20,31 +23,29 @@ const placeSlider = {
       },
     },
   ],
-};
+}
 
-export default function TourSliderSection() {
+interface TourSliderSectionProps {
+  images: any[]
+}
+
+export default function TourSliderSection({ images }: TourSliderSectionProps) {
+  const imagesWithUrls = images.map((image) => urlForImage(image)?.url())
+
   return (
     <Slider {...placeSlider} className="place-slider">
-      <div className="place-slider-item">
-        <div className="place-img">
-          <img src="assets/images/place/single-place-1.jpg" alt="Place Image" />
+      {imagesWithUrls.map((imageUrl, index) => (
+        <div className="place-slider-item" key={index}>
+          <div className="place-img relative">
+            <Image
+              src={imageUrl}
+              width={500}
+              height={0}
+              alt="Picture of the author"
+            />
+          </div>
         </div>
-      </div>
-      <div className="place-item">
-        <div className="place-img">
-          <img src="assets/images/place/single-place-2.jpg" alt="Place Image" />
-        </div>
-      </div>
-      <div className="place-slider-item">
-        <div className="place-img">
-          <img src="assets/images/place/single-place-3.jpg" alt="Place Image" />
-        </div>
-      </div>
-      <div className="place-slider-item">
-        <div className="place-img">
-          <img src="assets/images/place/single-place-2.jpg" alt="Place Image" />
-        </div>
-      </div>
+      ))}
     </Slider>
   )
 }
