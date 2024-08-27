@@ -64,7 +64,7 @@ export default function AboutSection({
         </div>
       </div>
 
-      <div className="container-fluid">
+      <div className="container">
         <Slider
           {...sliderSettings}
           className="slider-active-4-item wow fadeInUp"

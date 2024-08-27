@@ -21,7 +21,7 @@ export default function HeroSection({
     <section className="hero-section">
       <div className="hero-wrapper black-bg">
         <div className="single-slider">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row align-items-center">
               <div className="col-xl-6">
                 <div className="hero-content text-white">

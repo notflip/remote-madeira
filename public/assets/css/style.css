@@ -624,15 +624,23 @@ h6 {
     }
 }
 
-ul,
-ol {
-    margin: 0px;
-    padding: 0px;
+ul, ol {
+    padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 
+.place-content-wrap ul,
+.place-content-wrap ol {
+    list-style: initial;
+    list-style-type: initial;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
 p {
-    margin: 0px;
+    margin: 0;
 }
 
 input,
@@ -666,6 +674,12 @@ body {
 }
 
 /*====== Extra CSS ======*/
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
 .container-fluid {
     padding-left: 70px;
     padding-right: 70px;
@@ -4525,7 +4539,6 @@ button {
     border-bottom: none;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
 }
 
 .days-area .nav-tabs .nav-link {

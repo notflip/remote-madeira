@@ -92,10 +92,24 @@ export default defineType({
     }),
 
     defineField({
+      name: 'duration',
+      title: 'Duration',
+      type: 'string',
+      description: 'The text with the duration, for example: 4 hours, half day',
+    }),
+
+    defineField({
       name: 'maxPersons',
       title: 'Maximum Persons',
       type: 'number',
       description: 'Enter the maximum persons allowed for this tour',
+      validation: (Rule) => Rule.min(0),
+    }),
+
+    defineField({
+      name: 'minAge',
+      title: 'Minimum Age',
+      type: 'number',
       validation: (Rule) => Rule.min(0),
     }),
 
@@ -136,6 +150,48 @@ export default defineType({
             }),
           ],
         },
+        // {
+        //   name: 'tourSteps',
+        //   title: 'Tour Steps',
+        //   type: 'object',
+        //   fields: [
+        //     defineField({
+        //       type: 'array',
+        //       name: 'steps',
+        //       of: [
+        //         {
+        //           name: 'step',
+        //           type: 'object',
+        //           fields: [
+        //             {
+        //               type: 'string',
+        //               name: 'title',
+        //               validation: (rule) => rule.required().max(30),
+        //             },
+        //             {
+        //               type: 'text',
+        //               name: 'text',
+        //               validation: (rule) => rule.required(),
+        //             },
+        //           ],
+        //         },
+        //       ],
+        //     }),
+        //   ],
+        //   preview: {
+        //     select: {
+        //       steps: 'steps',
+        //     },
+        //     prepare(selection: any) {
+        //       const { steps } = selection
+        //
+        //       return {
+        //         title: 'Tour Steps',
+        //         subtitle: `${steps?.length ?? 0} steps`,
+        //       }
+        //     },
+        //   },
+        // },
         {
           type: 'block',
           styles: [

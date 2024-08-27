@@ -13,7 +13,7 @@ export default function Navbar(props: NavbarProps) {
     <header className="header-area header-one transparent-header">
       <div className="header-navigation navigation-white">
         <div className="nav-overlay" />
-        <div className="container-fluid">
+        <div className="container">
           <div className="primary-menu">
             <div className="site-branding">
               <Link href="/" className="brand-logo">

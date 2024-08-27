@@ -3,9 +3,11 @@ import {
   type PortableTextBlock,
   type PortableTextComponents,
 } from 'next-sanity'
-import type { Image } from 'sanity'
+import { Nav, Tab } from 'react-bootstrap'
 
 import ImageBox from '@/components/shared/ImageBox'
+import { Image } from 'sanity'
+import PortableTextTabs from '@/components/portable/PortableTextTabs'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -34,6 +36,7 @@ export function CustomPortableText({
       },
     },
     types: {
+      tourSteps: ({ value }) => <PortableTextTabs value={value} />,
       image: ({
         value,
       }: {

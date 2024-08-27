@@ -30,19 +30,23 @@ interface TourSliderSectionProps {
 }
 
 export default function TourSliderSection({ images }: TourSliderSectionProps) {
-  const imagesWithUrls = images.map((image) => urlForImage(image)?.url())
+  const imagesWithUrls = images?.map((image) =>
+    urlForImage(image)?.width(700).height(700).fit('crop').url(),
+  )
 
   return (
     <Slider {...placeSlider} className="place-slider">
-      {imagesWithUrls.map((imageUrl, index) => (
-        <div className="place-slider-item" key={index}>
-          <div className="place-img relative">
-            <Image
-              src={imageUrl}
-              width={500}
-              height={0}
-              alt="Picture of the author"
-            />
+      {imagesWithUrls && imagesWithUrls.map((imageUrl, index) => (
+        <div className="place-slider" key={index}>
+          <div className="place-img h-[500px]">
+            {imageUrl && (
+              <Image
+                src={imageUrl}
+                width={500}
+                height={0}
+                alt="image"
+              />
+            )}
           </div>
         </div>
       ))}

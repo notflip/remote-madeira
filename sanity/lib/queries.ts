@@ -66,6 +66,7 @@ export const toursQuery = groq`
   coverImage,
   region,
   maxPersons,
+  minAge,
   price
 }
 `
@@ -83,7 +84,10 @@ export const tourQuery = groq`
   },
   coverImage,
   region,
+  duration,
   maxPersons,
-  price
+  minAge,
+  price,
+  content
 }
 `
