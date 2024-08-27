@@ -88,6 +88,7 @@ export const tourQuery = groq`
   maxPersons,
   minAge,
   price,
-  content
+  content,
+  extraImages
 }
 `

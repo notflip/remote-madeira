@@ -39,6 +39,7 @@
     "sanity-plugin-icon-manager": "^2.0.2",
     "server-only": "0.0.1",
     "styled-components": "6.1.11",
+    "swiper": "^11.1.10",
     "wowjs": "^1.1.3"
   },
   "devDependencies": {

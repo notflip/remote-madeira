@@ -261,6 +261,44 @@ export default defineType({
     }),
 
     defineField({
+      name: 'extraImages',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'extraImage',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'location',
+              type: 'string',
+            }),
+            defineField({
+              name: 'image',
+              type: 'image',
+              validation: (rule: any) => rule.required(),
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                defineField({
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt',
+                  description:
+                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+
+    defineField({
       name: 'order',
       title: 'Order',
       type: 'number',

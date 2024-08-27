@@ -1,29 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import Slider from '@ant-design/react-slick'
 import { urlForImage } from '@/sanity/lib/utils'
 
-const placeSlider = {
-  dots: false,
-  arrows: false,
-  infinite: true,
-  speed: 800,
-  // @todo uncomment for live
-  // autoplay: true,
-  variableWidth: true,
-  centerMode: true,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-}
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 
 interface TourSliderSectionProps {
   images: any[]
@@ -35,21 +16,38 @@ export default function TourSliderSection({ images }: TourSliderSectionProps) {
   )
 
   return (
-    <Slider {...placeSlider} className="place-slider">
-      {imagesWithUrls && imagesWithUrls.map((imageUrl, index) => (
-        <div className="place-slider" key={index}>
-          <div className="place-img h-[500px]">
+    <Swiper
+      spaceBetween={8}
+      slidesPerView={1}
+      breakpoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 8,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 8,
+        },
+        1500: {
+          slidesPerView: 4,
+          spaceBetween: 8,
+        },
+      }}
+    >
+      {imagesWithUrls &&
+        imagesWithUrls.map((imageUrl, index) => (
+          <SwiperSlide key={index}>
             {imageUrl && (
               <Image
+                width={400}
+                height={400}
                 src={imageUrl}
-                width={500}
-                height={0}
+                className="h-full w-full object-cover"
                 alt="image"
               />
             )}
-          </div>
-        </div>
-      ))}
-    </Slider>
+          </SwiperSlide>
+        ))}
+    </Swiper>
   )
 }

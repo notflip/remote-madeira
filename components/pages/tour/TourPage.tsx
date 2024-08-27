@@ -1,7 +1,7 @@
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 import TourSliderSection from '@/components/blocks/TourSliderSection'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import ImageBox from '@/components/shared/ImageBox'
 
 export interface TourPageProps {
   data: any
@@ -18,10 +18,12 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
         <div className="tour-details-wrapper pt-80">
           <div className="tour-title-wrapper pb-30 wow fadeInUp">
             <div className="row">
-              <div className="col-xl-6">
+              <div className="col-xl-6 mb-4 lg:mb-0">
                 <div className="tour-title mb-20">
                   <h3 className="title">{data.title}</h3>
-                  <p className="font-serif text-xl text-gray-600">{data.description}</p>
+                  <p className="font-serif text-xl text-gray-600">
+                    {data.description}
+                  </p>
                   <p className="mt-4">
                     <i className="far fa-map-marker-alt" />
                     {data.region}
@@ -79,6 +81,16 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
             </div>
             <div className="col-xl-4">
               <div className="sidebar-widget-area pt-60 pl-lg-30">
+                <div className="sidebar-widget booking-form-widget wow fadeInUp mb-40">
+                  <h4 className="widget-title">Book Tour</h4>
+                  <div className="submit-button">
+                    <button className="main-btn primary-btn text-left">
+                      Book {data.subtitle}
+                      <i className="far fa-paper-plane" />
+                    </button>
+                  </div>
+                </div>
+
                 <div className="sidebar-widget booking-info-widget wow fadeInUp mb-40">
                   <h4 className="widget-title">Tour Information</h4>
                   <ul className="info-list">
@@ -98,150 +110,48 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
                         </span>
                       </li>
                     )}
-                    <li>
-                      <span>
-                        <i className="far fa-map-marker-alt" />
-                        Tour Location<span>Thailand</span>
-                      </span>
-                    </li>
-                    <li>
-                      <span>
-                        <i className="far fa-globe" />
-                        Language<span>English</span>
-                      </span>
-                    </li>
+                    {data.region && (
+                      <li>
+                        <span>
+                          <i className="far fa-map-marker-alt" />
+                          Tour Location<span>{data.region}</span>
+                        </span>
+                      </li>
+                    )}
                   </ul>
                 </div>
-                {/*=== Recent Place Widget ===*/}
-                <div className="sidebar-widget recent-place-widget mb-40 wow fadeInUp">
-                  <h4 className="widget-title">Last Minute Deals</h4>
-                  <ul className="recent-place-list">
-                    <li className="place-thumbnail-content">
-                      <img
-                        src="assets/images/place/thumb-1.jpg"
-                        alt="post thumb"
-                      />
-                      <div className="place-content">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="far fa-star" />
-                          </li>
-                        </ul>
-                        <h5>
-                          <Link href="/tour-details">
-                            Infinity Pool Nears Beach
-                          </Link>
-                        </h5>
-                        <span className="price">
-                          <span className="text">From :</span>
-                          <span className="currency">$</span>45.23
-                        </span>
-                      </div>
-                    </li>
-                    <li className="place-thumbnail-content">
-                      <img
-                        src="assets/images/place/thumb-2.jpg"
-                        alt="post thumb"
-                      />
-                      <div className="place-content">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star-half-alt" />
-                          </li>
-                        </ul>
-                        <h5>
-                          <Link legacyBehavior href="/tour-details">
-                            <a>Infinity Pool Nears Beach</a>
-                          </Link>
-                        </h5>
-                        <span className="price">
-                          <span className="text">From :</span>
-                          <span className="currency">$</span>45.23
-                        </span>
-                      </div>
-                    </li>
-                    <li className="place-thumbnail-content">
-                      <img
-                        src="assets/images/place/thumb-3.jpg"
-                        alt="post thumb"
-                      />
-                      <div className="place-content">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h5>
-                          <Link legacyBehavior href="/tour-details">
-                            <a>Infinity Pool Nears Beach</a>
-                          </Link>
-                        </h5>
-                        <span className="price">
-                          <span className="text">From :</span>
-                          <span className="currency">$</span>45.23
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                {/*=== Banner Widget ===*/}
-                <div className="sidebar-widget sidebar-banner-widget wow fadeInUp mb-40">
-                  <div className="banner-widget-content">
-                    <div className="banner-img">
-                      <img
-                        src="assets/images/blog/banner-1.jpg"
-                        alt="Post Banner"
-                      />
-                      <div className="hover-overlay">
-                        <div className="hover-content">
-                          <h4 className="title">
-                            <a href="#">Swimming Pool</a>
-                          </h4>
-                          <p>
-                            <i className="fas fa-map-marker-alt" />
-                            Marrakesh, Morocco
-                          </p>
+                {data.extraImages &&
+                  data.extraImages.map((extraImage, index) => (
+                    <div
+                      className="sidebar-widget sidebar-banner-widget wow fadeInUp mb-40"
+                      key={index}
+                    >
+                      <div className="banner-widget-content">
+                        <div className="banner-img">
+                          <ImageBox
+                            image={extraImage.image}
+                            width={500}
+                            height={500}
+                            alt="tour image"
+                            classesWrapper="relative aspect-[4/3] radius-12"
+                          />
+                          <div className="hover-overlay">
+                            <div className="hover-content">
+                              {extraImage.title && (
+                                <h4 className="title">{extraImage.title}</h4>
+                              )}
+                              {extraImage.location && (
+                                <p>
+                                  <i className="fas fa-map-marker-alt" />
+                                  {extraImage.location}
+                                </p>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </div>
