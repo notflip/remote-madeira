@@ -9,7 +9,7 @@ export default function PortableTextTabs({ value }) {
         <Nav as={'ul'} className="nav nav-tabs mb-35">
           {value.steps &&
             value.steps.map((step) => (
-              <Nav.Item as={'li'} className="nav-item">
+              <Nav.Item as={'li'} className="nav-item" key={step._key}>
                 <Nav.Link as="button" className="nav-link" eventKey={step._key}>
                   {step.title}
                 </Nav.Link>
@@ -19,7 +19,11 @@ export default function PortableTextTabs({ value }) {
         <Tab.Content className="tab-content">
           {value.steps &&
             value.steps.map((step) => (
-              <Tab.Pane className="tab-pane fade" eventKey={step._key}>
+              <Tab.Pane
+                className="tab-pane fade"
+                eventKey={step._key}
+                key={step._key}
+              >
                 <div className="content-box">{step.text}</div>
               </Tab.Pane>
             ))}
