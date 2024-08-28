@@ -63,10 +63,10 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
           </div>
           <div className="row">
             <div className="col-xl-8">
-              <div className="place-content-wrap pt-45 wow fadeInUp mb-24">
+              <div className="place-content-wrap pt-45 wow fadeInUp mb-24 prose prose-lg">
                 {data.content && (
                   <CustomPortableText
-                    paragraphClasses="font-serif max-w-3xl text-gray-600 text-lg"
+                    paragraphClasses=""
                     value={data.content}
                   />
                 )}

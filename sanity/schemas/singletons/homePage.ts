@@ -10,33 +10,33 @@ export default defineType({
     {
       name: 'hero',
       title: 'Hero Section',
-      options: { collapsible: true, collapsed: true },
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'about',
       title: 'About Section',
-      options: { collapsible: true, collapsed: true },
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'activity',
       title: 'Activity Section',
-      options: { collapsible: true, collapsed: true },
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'features',
       title: 'Features Section',
-      options: { collapsible: true, collapsed: true },
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'cta',
       title: 'Call To Action Section',
-      options: { collapsible: true, collapsed: true },
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'testimonials',
       title: 'Testimonials Section',
-      options: { collapsible: true, collapsed: true },
-    },
+      options: { collapsible: true, collapsed: true }
+    }
   ],
   fields: [
     defineField({
@@ -44,7 +44,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
-      fieldset: 'hero',
+      fieldset: 'hero'
     }),
 
     defineField({
@@ -52,7 +52,7 @@ export default defineType({
       title: 'Subtitle',
       type: 'string',
       validation: (rule) => rule.required(),
-      fieldset: 'hero',
+      fieldset: 'hero'
     }),
 
     defineField({
@@ -62,10 +62,10 @@ export default defineType({
         'This image will be used as the cover image for the project. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
       type: 'image',
       options: {
-        hotspot: true,
+        hotspot: true
       },
       validation: (rule) => rule.required(),
-      fieldset: 'hero',
+      fieldset: 'hero'
     }),
 
     // About Section
@@ -74,7 +74,7 @@ export default defineType({
       type: 'string',
       title: 'About Title',
       validation: (rule) => rule.required(),
-      fieldset: 'about',
+      fieldset: 'about'
     }),
 
     defineField({
@@ -82,7 +82,7 @@ export default defineType({
       type: 'text',
       title: 'About Subtitle',
       validation: (rule) => rule.required(),
-      fieldset: 'about',
+      fieldset: 'about'
     }),
 
     defineField({
@@ -97,7 +97,7 @@ export default defineType({
               type: 'string',
               name: 'title',
               title: 'Title',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.required()
             }),
             defineField({
               type: 'string',
@@ -105,7 +105,7 @@ export default defineType({
               title: 'Description',
               description:
                 'Short description that goes underneat the title, max 200 characters',
-              validation: (rule) => rule.required().max(200),
+              validation: (rule) => rule.required().max(200)
             }),
             defineField({
               type: 'image',
@@ -113,7 +113,7 @@ export default defineType({
               title: 'Tour Image',
               validation: (rule) => rule.required(),
               options: {
-                hotspot: true,
+                hotspot: true
               },
               fields: [
                 defineField({
@@ -121,54 +121,41 @@ export default defineType({
                   type: 'string',
                   title: 'Alt',
                   description:
-                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
-                }),
-              ],
+                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about'
+                })
+              ]
             }),
             defineField({
               name: 'link',
-              type: 'reference',
-              to: [
-                {
-                  type: 'westTourPage',
-                },
-                {
-                  type: 'eastTourPage',
-                },
-                {
-                  type: 'privateTourPage',
-                },
-                {
-                  type: 'wineTourPage',
-                },
-                {
-                  type: 'rockClimbingPage',
-                },
-                {
-                  type: 'picoPage',
-                },
-              ],
-              validation: (rule) => rule.required(),
+              type: 'string',
               options: {
-                disableNew: true,
+                list: [
+                  { title: 'Homepage', value: '/' },
+                  { title: 'West Tour Page', value: '/west-tour-madeira' },
+                  { title: 'East Tour Page', value: '/east-tour-madeira' },
+                  { title: 'PrivateTour Page', value: '/private-tour-madeira' },
+                  { title: 'Wine Tour Page', value: '/wine-tour-madeira' },
+                  { title: 'Rock Climbing Page', value: '/rock-climbing-madeira' },
+                  { title: 'Pico Das Torres Page', value: '/climb-pico-das-torres' },
+                ]
               },
-            }),
+            })
           ],
           preview: {
             select: {
-              title: 'link.title',
-              media: 'image',
+              title: 'title',
+              media: 'image'
             },
             prepare({ title, media }) {
               return {
                 title: title || 'No title',
-                media: media,
+                media: media
               }
-            },
-          },
-        }),
+            }
+          }
+        })
       ],
-      fieldset: 'about',
+      fieldset: 'about'
     }),
 
     // Activity Section
@@ -177,7 +164,7 @@ export default defineType({
       type: 'string',
       title: 'Activity Title',
       validation: (rule) => rule.required(),
-      fieldset: 'activity',
+      fieldset: 'activity'
     }),
 
     defineField({
@@ -192,19 +179,19 @@ export default defineType({
               type: 'string',
               name: 'title',
               title: 'Title',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.required()
             }),
             defineField({
               type: 'string',
               name: 'subtitle',
               title: 'Subtitle',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.required()
             }),
             defineField({
               type: 'string',
               name: 'description',
               title: 'Description',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.required()
             }),
             defineField({
               type: 'image',
@@ -212,7 +199,7 @@ export default defineType({
               title: 'Tour Image',
               validation: (rule) => rule.required(),
               options: {
-                hotspot: true,
+                hotspot: true
               },
               fields: [
                 defineField({
@@ -220,26 +207,26 @@ export default defineType({
                   type: 'string',
                   title: 'Alt',
                   description:
-                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about',
-                }),
-              ],
-            }),
+                    '⚡ The alt tag is used by screen readers and search engines to determine what this image is about'
+                })
+              ]
+            })
           ],
           preview: {
             select: {
               title: 'title',
-              media: 'image',
+              media: 'image'
             },
             prepare({ title, media }) {
               return {
                 title: title || 'No title',
-                media: media,
+                media: media
               }
-            },
-          },
-        }),
+            }
+          }
+        })
       ],
-      fieldset: 'activity',
+      fieldset: 'activity'
     }),
 
     defineField({
@@ -247,7 +234,7 @@ export default defineType({
       type: 'string',
       title: 'Features Title',
       validation: (rule) => rule.required(),
-      fieldset: 'features',
+      fieldset: 'features'
     }),
 
     // Services Section
@@ -263,22 +250,22 @@ export default defineType({
               name: 'title',
               type: 'string',
               title: 'Feature Item Title',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.required()
             }),
             defineField({
               name: 'description',
               type: 'string',
-              validation: (rule) => rule.required().max(200),
+              validation: (rule) => rule.required().max(200)
             }),
             defineField({
               type: 'icon.manager',
               name: 'icon',
-              title: 'Icon',
-            }),
-          ],
-        }),
+              title: 'Icon'
+            })
+          ]
+        })
       ],
-      fieldset: 'features',
+      fieldset: 'features'
     }),
 
     // Cta Section
@@ -286,17 +273,17 @@ export default defineType({
       name: 'ctaTitle',
       type: 'string',
       validation: (rule) => rule.required(),
-      fieldset: 'cta',
+      fieldset: 'cta'
     }),
     defineField({
       name: 'ctaImage',
       title: 'CTA Image',
       type: 'image',
       options: {
-        hotspot: true,
+        hotspot: true
       },
       validation: (rule) => rule.required(),
-      fieldset: 'cta',
+      fieldset: 'cta'
     }),
 
     // Testimonial Section
@@ -304,18 +291,18 @@ export default defineType({
       name: 'testimonialTitle',
       type: 'string',
       validation: (rule) => rule.required(),
-      fieldset: 'testimonials',
-    }),
+      fieldset: 'testimonials'
+    })
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title'
     },
     prepare({ title }) {
       return {
         subtitle: 'Home',
-        title,
+        title
       }
-    },
-  },
+    }
+  }
 })

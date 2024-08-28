@@ -28,63 +28,6 @@ export const structure: StructureResolver = (S, context) =>
                     .documentId('privacyPolicyPage')
                     .title('Privacy Policy Page'),
                 ),
-
-              S.divider(),
-
-              S.listItem()
-                .schemaType('westTourPage')
-                .title('West Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('westTourPage')
-                    .documentId('westTourPage')
-                    .title('West Tour Page'),
-                ),
-              S.listItem()
-                .schemaType('eastTourPage')
-                .title('East Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('eastTourPage')
-                    .documentId('eastTourPage')
-                    .title('East Tour Page'),
-                ),
-              S.listItem()
-                .schemaType('privateTourPage')
-                .title('Private Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('privateTourPage')
-                    .documentId('privateTourPage')
-                    .title('Private Tour Page'),
-                ),
-              S.listItem()
-                .schemaType('wineTourPage')
-                .title('Wine Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('wineTourPage')
-                    .documentId('wineTourPage')
-                    .title('Wine Tour Page'),
-                ),
-              S.listItem()
-                .schemaType('rockClimbingPage')
-                .title('Climbing Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('rockClimbingPage')
-                    .documentId('rockClimbingPage')
-                    .title('Rock Climbing Tour Page'),
-                ),
-              S.listItem()
-                .schemaType('picoPage')
-                .title('Pico Tour Page')
-                .child(
-                  S.document()
-                    .schemaType('picoPage')
-                    .documentId('picoPage')
-                    .title('Pico Tour Page'),
-                ),
             ]),
         ),
       S.divider(),

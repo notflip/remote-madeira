@@ -12,14 +12,8 @@ import { IconManager } from 'sanity-plugin-icon-manager'
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import { singletonPlugin } from '@/sanity/plugins/settings'
 import page from '@/sanity/schemas/documents/page'
-import eastTourPage from '@/sanity/schemas/singletons/eastTourPage'
 import homePage from '@/sanity/schemas/singletons/homePage'
-import picoPage from '@/sanity/schemas/singletons/picoPage'
-import privateTourPage from '@/sanity/schemas/singletons/privateTourPage'
-import rockClimbingPage from '@/sanity/schemas/singletons/rockClimbingPage'
 import settings from '@/sanity/schemas/singletons/settings'
-import westTourPage from '@/sanity/schemas/singletons/westTourPage'
-import wineTourPage from '@/sanity/schemas/singletons/wineTourPage'
 
 import testimonial from './sanity/schemas/documents/testimonial'
 import tour from './sanity/schemas/documents/tour'
@@ -55,12 +49,6 @@ export default defineConfig({
       homePage,
       privacyPolicyPage,
 
-      westTourPage,
-      eastTourPage,
-      privateTourPage,
-      wineTourPage,
-      rockClimbingPage,
-      picoPage,
       settings,
       testimonial,
       footer,
@@ -92,13 +80,6 @@ export default defineConfig({
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([
       'homePage',
-      'privacyPolicyPage',
-      'eastTourPage',
-      'westTourPage',
-      'privateTourPage',
-      'rockClimbingPage',
-      'wineTourPage',
-      'picoPage',
       'settings',
     ]),
 

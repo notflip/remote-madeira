@@ -1,4 +1,4 @@
-import { DocumentIcon, LinkIcon } from '@sanity/icons'
+import { DocumentIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 import { SlugInput } from '@/sanity/components/SlugInput'
@@ -213,46 +213,65 @@ export default defineType({
               { title: 'Underline', value: 'underline' },
             ],
             annotations: [
-              {
-                name: 'internalLink',
-                type: 'object',
-                icon: LinkIcon,
-                title: 'Internal Link',
-                fields: [
-                  defineField({
-                    name: 'reference',
-                    type: 'reference',
-                    title: 'Referentie',
-                    to: [
-                      { type: 'homePage' },
-                      { type: 'eastTourPage' },
-                      { type: 'westTourPage' },
-                      { type: 'privateTourPage' },
-                      { type: 'wineTourPage' },
-                      { type: 'rockClimbingPage' },
-                      { type: 'picoPage' },
-                    ],
-                  }),
-                ],
-              },
-              {
-                name: 'externalLink',
-                type: 'object',
-                icon: LinkIcon,
-                title: 'External Link',
-                fields: [
-                  defineField({
-                    name: 'url',
-                    type: 'url',
-                    title: 'URL',
-                    validation: (Rule: any) =>
-                      Rule.uri({
-                        allowRelative: false,
-                        scheme: ['http', 'https', 'mailto', 'tel'],
-                      }),
-                  }),
-                ],
-              },
+              // {
+              //   name: 'internalLink',
+              //   type: 'object',
+              //   icon: LinkIcon,
+              //   title: 'Internal Link',
+              //   fields: [
+              //     defineField({
+              //       name: 'link',
+              //       type: 'string',
+              //       options: {
+              //         list: [
+              //           { title: 'Homepage', value: '/' },
+              //           {
+              //             title: 'West Tour Page',
+              //             value: '/west-tour-madeira',
+              //           },
+              //           {
+              //             title: 'East Tour Page',
+              //             value: '/east-tour-madeira',
+              //           },
+              //           {
+              //             title: 'PrivateTour Page',
+              //             value: '/private-tour-madeira',
+              //           },
+              //           {
+              //             title: 'Wine Tour Page',
+              //             value: '/wine-tour-madeira',
+              //           },
+              //           {
+              //             title: 'Rock Climbing Page',
+              //             value: '/rock-climbing-madeira',
+              //           },
+              //           {
+              //             title: 'Pico Das Torres Page',
+              //             value: '/climb-pico-das-torres',
+              //           },
+              //         ],
+              //       },
+              //     }),
+              //   ],
+              // },
+              // {
+              //   name: 'externalLink',
+              //   type: 'object',
+              //   icon: LinkIcon,
+              //   title: 'External Link',
+              //   fields: [
+              //     defineField({
+              //       name: 'url',
+              //       type: 'url',
+              //       title: 'URL',
+              //       validation: (Rule: any) =>
+              //         Rule.uri({
+              //           allowRelative: false,
+              //           scheme: ['http', 'https', 'mailto', 'tel'],
+              //         }),
+              //     }),
+              //   ],
+              // },
             ],
           },
         },

@@ -21,31 +21,31 @@ export function urlForOpenGraphImage(image: Image | undefined) {
   return urlForImage(image)?.width(1200).height(627).fit('crop').url()
 }
 
-export function resolveHref(
-  documentType?: string,
-  slug?: string,
-): string | undefined {
-  switch (documentType) {
-    case 'homePage':
-      return '/'
-    case 'westTourPage':
-      return '/tour'
-    case 'eastTourPage':
-      return '/east-tour-madeira'
-    case 'privateTourPage':
-      return '/private-tour-madeira'
-    case 'wineTourPage':
-      return '/wine-tour-madeira'
-    case 'rockClimbingPage':
-      return '/rock-climbing-madeira'
-    case 'picoPage':
-      return '/climb-pico-das-torres'
-    // case 'page':
-    //   return slug ? `/${slug}` : undefined
-    // case 'project':
-    //   return slug ? `/projects/${slug}` : undefined
-    default:
-      console.warn('Invalid document type:', documentType)
-      return undefined
-  }
-}
+// export function resolveHref(
+//   documentType?: string,
+//   slug?: string,
+// ): string | undefined {
+//   switch (documentType) {
+//     case 'homePage':
+//       return '/'
+//     case 'westTourPage':
+//       return '/tour'
+//     case 'eastTourPage':
+//       return '/east-tour-madeira'
+//     case 'privateTourPage':
+//       return '/private-tour-madeira'
+//     case 'wineTourPage':
+//       return '/wine-tour-madeira'
+//     case 'rockClimbingPage':
+//       return '/rock-climbing-madeira'
+//     case 'picoPage':
+//       return '/climb-pico-das-torres'
+//     // case 'page':
+//     //   return slug ? `/${slug}` : undefined
+//     // case 'project':
+//     //   return slug ? `/projects/${slug}` : undefined
+//     default:
+//       console.warn('Invalid document type:', documentType)
+//       return undefined
+//   }
+// }

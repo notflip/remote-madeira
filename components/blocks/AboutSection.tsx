@@ -4,14 +4,13 @@ import Link from 'next/link'
 import Slider from '@ant-design/react-slick'
 
 import { HomePagePayload } from '@/types'
-import { resolveHref } from '@/sanity/lib/utils'
 import ImageBox from '@/components/shared/ImageBox'
 
 const sliderSettings = {
   dots: false,
   arrows: false,
   infinite: false,
-  speed: 800,
+  speed: 600,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -83,11 +82,8 @@ export default function AboutSection({
                   <div className="content">
                     <div className="text">
                       <h4 className="title">{item.title}</h4>
-                      {resolveHref(item.link._id) && (
-                        <Link
-                          href={resolveHref(item.link._id)!}
-                          className="icon-btn"
-                        >
+                      {item.link && (
+                        <Link href={item.link} className="icon-btn">
                           <i className="far fa-arrow-right" />
                         </Link>
                       )}

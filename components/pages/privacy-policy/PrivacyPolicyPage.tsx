@@ -36,10 +36,9 @@ export default function PrivacyPolicyPage({
         </div>
       </section>
 
-      <section className="container pt-100 pb-50">
+      <section className="container pt-100 pb-50 prose prose-lg">
         {body && (
           <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
             value={body}
           />
         )}
