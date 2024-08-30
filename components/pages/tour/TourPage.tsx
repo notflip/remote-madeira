@@ -84,7 +84,7 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
                 <div className="sidebar-widget booking-form-widget wow fadeInUp mb-40">
                   <h4 className="widget-title">Book Tour</h4>
                   <div className="submit-button">
-                    <button className="main-btn primary-btn text-left">
+                    <button className="main-btn secondary-btn text-left">
                       Book {data.subtitle}
                       <i className="far fa-paper-plane" />
                     </button>

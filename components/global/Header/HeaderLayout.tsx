@@ -56,7 +56,7 @@ const Header = ({ settings }: HeaderProps) => {
             </div>
             <div className="col-xl-9 col-lg-12">
               <div className="information-wrapper">
-                <div className="flex gap-6 justify-end">
+                <div className="flex gap-6 justify-end items-center">
                   {settings.address && (
                     <div className="single-info-item-two">
                       <div className="inner-info">
@@ -89,19 +89,9 @@ const Header = ({ settings }: HeaderProps) => {
                   )}
                   {settings.phone && (
                     <div className="single-info-item-two">
-                      <div className="inner-info">
-                        <div className="icon">
-                          <i className="far fa-phone-plus" />
-                        </div>
-                        <div className="info">
-                          <span className="title">Call Us</span>
-                          <h5>
-                            <a href={`tel:${settings.phone}`}>
-                              {settings.phone}
-                            </a>
-                          </h5>
-                        </div>
-                      </div>
+                      <Link href={`https://wa.me/${settings.phone.replace(/[^\d]/g, '')}`}>
+                        <img src="/assets/images/whatsapp.svg" alt="whatsapp chat button" />
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -139,7 +129,7 @@ const Header = ({ settings }: HeaderProps) => {
             </div>
             <div className="nav-right-item">
               <div className="menu-button d-xl-block d-none">
-                <Link href="#" className="main-btn primary-btn">
+                <Link href="#" className="main-btn secondary-btn">
                   Book Now
                   <i className="fas fa-paper-plane" />
                 </Link>

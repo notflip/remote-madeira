@@ -57,7 +57,7 @@ export default function Navbar(props: NavbarProps) {
             </div>
             <div className="nav-right-item">
               <div className="menu-button d-xl-block d-none">
-                <Link href="#" className="main-btn primary-btn">
+                <Link href="#" className="main-btn secondary-btn">
                   Book Now
                   <i className="fas fa-paper-plane" />
                 </Link>
