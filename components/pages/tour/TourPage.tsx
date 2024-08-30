@@ -2,13 +2,19 @@ import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import TourSliderSection from '@/components/blocks/TourSliderSection'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
+import TestimonialSection from '@/components/blocks/TestimonialSection'
 
 export interface TourPageProps {
   data: any
+  testimonials: any
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
-export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
+export default function TourPage({
+  data,
+  testimonials,
+  encodeDataAttribute,
+}: TourPageProps) {
   return (
     <section className="place-details-section">
       <div className="place-slider-area overflow-hidden wow fadeInUp">
@@ -157,6 +163,8 @@ export default function TourPage({ data, encodeDataAttribute }: TourPageProps) {
           </div>
         </div>
       </div>
+
+      <TestimonialSection testimonials={testimonials} />
     </section>
   )
 }

@@ -78,10 +78,12 @@ export default function ToursPage({
                               {tour.price}
                             </span>
                           )}
-                          <span>
-                            <i className="far fa-user" />
-                            25
-                          </span>
+                          {tour.maxPersons && (
+                            <span>
+                              <i className="far fa-user" />
+                              {tour.maxPersons}
+                            </span>
+                          )}
                           <span className="ml-auto">
                             <Link href={`/${tour.slug}`}>
                               Details

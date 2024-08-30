@@ -26,7 +26,7 @@ export function HomePage({
       <ActivitySection data={data} />
       <FeatureSection data={data} />
       <CtaSection data={data} />
-      <TestimonialSection data={data} testimonials={testimonials} />
+      <TestimonialSection testimonials={testimonials} />
     </>
   )
 }

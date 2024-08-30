@@ -71,13 +71,3 @@ export function loadHomePage() {
     { next: { tags: ['homePage'] } },
   )
 }
-
-export function loadTestimonials() {
-  return loadQuery<TestimonialPayload | null>(
-    testimonialsQuery,
-    {},
-    {
-      next: { tags: [`testimonial`] },
-    },
-  )
-}

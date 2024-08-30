@@ -1,11 +1,10 @@
 'use client'
 
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { HomePagePayload, TestimonialPayload } from '@/types'
+import { HomePagePayload } from '@/types'
 import Slider from '@ant-design/react-slick'
 
 export interface TestimonialSectionProps {
-  data: Partial<HomePagePayload> | null
   testimonials: any
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
@@ -41,12 +40,9 @@ const testimonialSlider = {
 }
 
 export default function TestimonialSection({
-  data,
   testimonials,
   encodeDataAttribute,
 }: TestimonialSectionProps) {
-  const { testimonialTitle } = data ?? {}
-
   return (
     <section className="testimonial-section bg_cover pt-100 pb-100 gray-bg">
       <div className="container">
