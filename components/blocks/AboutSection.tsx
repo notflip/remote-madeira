@@ -1,40 +1,13 @@
 'use client'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
-import Slider from '@ant-design/react-slick'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css'
 
 import { HomePagePayload } from '@/types'
 import ImageBox from '@/components/shared/ImageBox'
-
-const sliderSettings = {
-  dots: false,
-  arrows: false,
-  infinite: true,
-  speed: 500,
-  autoplay: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1400,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-}
 
 export interface AboutSectionProps {
   data: Partial<HomePagePayload> | null
@@ -64,13 +37,29 @@ export default function AboutSection({
       </div>
 
       <div className="container">
-        <Slider
-          {...sliderSettings}
-          className="slider-active-4-item wow fadeInUp"
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          spaceBetween={8}
+          slidesPerView={1.5}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 8,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 8,
+            },
+            1500: {
+              slidesPerView: 4,
+              spaceBetween: 8,
+            },
+          }}
         >
           {aboutItems &&
             aboutItems.map((item, index) => (
-              <div className="single-features-item mb-40" key={index}>
+              <SwiperSlide key={index} className="single-features-item mb-4">
                 <div className="img-holder w-full">
                   <ImageBox
                     image={item.image}
@@ -91,9 +80,9 @@ export default function AboutSection({
                     <p>{item.description}</p>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-        </Slider>
+        </Swiper>
       </div>
     </section>
   )

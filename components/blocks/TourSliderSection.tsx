@@ -15,8 +15,6 @@ export default function TourSliderSection({ images }: TourSliderSectionProps) {
     urlForImage(image)?.width(700).height(700).fit('crop').url(),
   )
 
-  console.log(imagesWithUrls)
-
   return (
     <Swiper
       spaceBetween={8}
