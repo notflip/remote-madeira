@@ -1,40 +1,16 @@
 'use client'
 
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { HomePagePayload } from '@/types'
-import Slider from '@ant-design/react-slick'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination';
+
 
 export interface TestimonialSectionProps {
   testimonials: any
   encodeDataAttribute?: EncodeDataAttributeCallback
-}
-
-const testimonialSlider = {
-  dots: true,
-  arrows: false,
-  infinite: false,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
 }
 
 export default function TestimonialSection({
@@ -52,10 +28,30 @@ export default function TestimonialSection({
             </div>
           </div>
         </div>
-        <Slider {...testimonialSlider} className="slider-active-3-item-dot">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          spaceBetween={8}
+          slidesPerView={1.5}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 8,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 8,
+            },
+            1500: {
+              slidesPerView: 4,
+              spaceBetween: 8,
+            },
+          }}
+        >
           {testimonials &&
             testimonials.map((testimonial, index) => (
-              <div className="gw-testimonial-item-two" key={index}>
+              <SwiperSlide className="gw-testimonial-item-two" key={index}>
                 <div className="testimonial-inner-content">
                   <div className="quote-rating-box">
                     <div className="ratings-box">
@@ -85,9 +81,9 @@ export default function TestimonialSection({
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-        </Slider>
+        </Swiper>
       </div>
     </section>
   )
