@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 export default async function RootLayout({
@@ -51,7 +52,10 @@ export default async function RootLayout({
         <link rel="stylesheet" href="assets/css/default.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
       </head>
-      <body>{children}</body>
+      <body>
+        <GoogleAnalytics gaId="G-XYW856B553" />
+        {children}
+      </body>
     </html>
   )
 }
