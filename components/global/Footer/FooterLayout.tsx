@@ -64,11 +64,6 @@ export default function Footer(props: any) {
                     <li>
                       <Link href="/privacy-policy">Privacy Policy</Link>
                     </li>
-                    <li>
-                      <Link href={`https://wa.me/${data.settings.phone.replace(/[^\d]/g, '')}`}>
-                        <img src="/assets/images/whatsapp.svg" alt="whatsapp chat button" />
-                      </Link>
-                    </li>
                   </ul>
                 </div>
               </div>
@@ -108,15 +103,6 @@ export default function Footer(props: any) {
                   Copy@ {new Date().getFullYear()}{' '}
                   <span style={{ color: '#F7921E' }}>Remote Madeira</span>
                 </p>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="footer-nav float-lg-end">
-                <ul>
-                  <li>
-                    <Link href="/privacy-policy">Privacy Policy</Link>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 
 import { HomePage } from '@/components/pages/home/HomePage'
-import { loadHomePage, loadQuery } from '@/sanity/loader/loadQuery'
+import { loadHomePage, loadQuery, loadSettings } from '@/sanity/loader/loadQuery'
 import { TestimonialPayload } from '@/types'
 import { testimonialsQuery } from '@/sanity/lib/queries'
 
@@ -12,6 +12,7 @@ const HomePagePreview = dynamic(
 
 export default async function IndexRoute() {
   const homepageData = await loadHomePage()
+  const settingsData = await loadSettings()
   const testimonialData = await loadQuery<TestimonialPayload | null>(
     testimonialsQuery,
     {},
@@ -22,11 +23,11 @@ export default async function IndexRoute() {
 
   if (draftMode().isEnabled) {
     return (
-      <HomePagePreview initial={homepageData} testimonials={testimonialData} />
+      <HomePagePreview initial={homepageData} testimonials={testimonialData} settings={settingsData} />
     )
   }
 
   return (
-    <HomePage data={homepageData.data} testimonials={testimonialData.data} />
+    <HomePage data={homepageData.data} testimonials={testimonialData.data} settings={settingsData.data} />
   )
 }

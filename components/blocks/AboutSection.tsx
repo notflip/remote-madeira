@@ -9,8 +9,8 @@ import ImageBox from '@/components/shared/ImageBox'
 const sliderSettings = {
   dots: false,
   arrows: false,
-  infinite: false,
-  speed: 600,
+  infinite: true,
+  speed: 500,
   autoplay: true,
   slidesToShow: 4,
   slidesToScroll: 1,

@@ -62,7 +62,7 @@ export default function ActivitySection({
                       >
                         <div className="row align-items-center">
                           <div className="col-md-6">
-                            <div className="activity-content-box pl-lg-40 pb-32">
+                            <div className="activity-content-box pl-lg-40 lg:pb-32">
                               <h3 className="title">{item.subtitle}</h3>
                               <p>{item.description}</p>
                               {/*<ul className="check-list">

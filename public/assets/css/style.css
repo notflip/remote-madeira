@@ -1375,11 +1375,11 @@ button {
     margin-left: 5px;
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    .header-navigation .main-menu ul > li > a {
-        font-size: 16px;
-    }
-}
+/*@media only screen and (min-width: 1200px) and (max-width: 1600px) {*/
+/*    .header-navigation .main-menu ul > li > a {*/
+/*        font-size: 16px;*/
+/*    }*/
+/*}*/
 
 .header-navigation .main-menu ul > li .sub-menu {
     position: absolute;

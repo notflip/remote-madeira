@@ -27,17 +27,11 @@ const DeskTopMenu = () => {
           </li>
           <li className="menu-item">
             <Link href="/tours">
-              <span className="border-r border-black/50 pr-4">All Tours</span>
+              <span className="main-btn secondary-btn !pl-0 px-3 py-2">All Tours</span>
             </Link>
           </li>
           <li className="menu-item">
             <Link href="/west-tour-madeira">West Tour</Link>
-          </li>
-          <li className="menu-item">
-            <Link href="/east-tour-madeira">East Tour</Link>
-          </li>
-          <li className="menu-item">
-            <Link href="/private-tour-madeira">Private Tour</Link>
           </li>
           <li className="menu-item">
             <Link href="/wine-tour-madeira">Wine Tour</Link>
@@ -46,8 +40,14 @@ const DeskTopMenu = () => {
             <Link href="/rock-climbing-madeira">Rock Climbing Tour</Link>
           </li>
           <li className="menu-item">
-            <Link href="/climb-pico-das-torres">Pico Das Torres</Link>
+            <Link href="/east-tour-madeira">East Tour</Link>
           </li>
+          {/*<li className="menu-item">*/}
+          {/*  <Link href="/climb-pico-das-torres">Pico Das Torres</Link>*/}
+          {/*</li>*/}
+          {/*<li className="menu-item">*/}
+          {/*  <Link href="/private-tour-madeira">Private Tour</Link>*/}
+          {/*</li>*/}
         </ul>
       </nav>
     </Fragment>
@@ -67,7 +67,7 @@ const MobileMenu = () => {
           <Link href="/">Home</Link>
         </li>
         <li className="menu-item">
-          <Link href="/tours">
+          <Link href="/tours" className="main-btn">
             <span className="border-r border-black/50 pr-4">All Tours</span>
           </Link>
         </li>
@@ -83,12 +83,12 @@ const MobileMenu = () => {
         <li className="menu-item">
           <Link href="/wine-tour-madeira">Wine Tour</Link>
         </li>
-        <li className="menu-item">
-          <Link href="/rock-climbing-madeira">Rock Climbing Tour</Link>
-        </li>
-        <li className="menu-item">
-          <Link href="/climb-pico-das-torres">Pico Das Torres</Link>
-        </li>
+        {/*<li className="menu-item">*/}
+        {/*  <Link href="/rock-climbing-madeira">Rock Climbing Tour</Link>*/}
+        {/*</li>*/}
+        {/*<li className="menu-item">*/}
+        {/*  <Link href="/climb-pico-das-torres">Pico Das Torres</Link>*/}
+        {/*</li>*/}
       </ul>
     </nav>
   )

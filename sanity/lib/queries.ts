@@ -12,7 +12,7 @@ export const homePageQuery = groq`
       title,
       description,
       image,  
-      link->{_id, title}
+      link
     },
     activityTitle,
     activityItems,

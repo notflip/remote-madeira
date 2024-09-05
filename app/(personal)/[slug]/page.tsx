@@ -1,4 +1,4 @@
-import { loadQuery } from '@/sanity/loader/loadQuery'
+import { loadQuery, loadSettings } from '@/sanity/loader/loadQuery'
 import { testimonialsQuery, tourQuery } from '@/sanity/lib/queries'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
@@ -18,6 +18,8 @@ export default async function PageSlugRoute({params}) {
     { next: { tags: ['tour'] } },
   )
 
+  const { data: settingsData } = await loadSettings()
+
   const testimonialData = await loadQuery<TestimonialPayload | null>(
     testimonialsQuery,
     {},
@@ -27,12 +29,12 @@ export default async function PageSlugRoute({params}) {
   )
 
   if (draftMode().isEnabled) {
-    return <TourPagePreview initial={initial} testimonials={testimonialData} />
+    return <TourPagePreview initial={initial} testimonials={testimonialData} settings={settingsData} />
   }
 
   if (!initial.data) {
     notFound()
   }
 
-  return <TourPage data={initial.data} testimonials={testimonialData.data} />
+  return <TourPage data={initial.data} testimonials={testimonialData.data} settings={settingsData.settings} />
 }

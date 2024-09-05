@@ -13,8 +13,6 @@ const testimonialSlider = {
   dots: true,
   arrows: false,
   infinite: false,
-  speed: 800,
-  autoplay: true,
   slidesToShow: 2,
   slidesToScroll: 1,
   responsive: [

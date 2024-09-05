@@ -20,7 +20,7 @@ export default function TourSliderSection({ images }: TourSliderSectionProps) {
   return (
     <Swiper
       spaceBetween={8}
-      slidesPerView={1}
+      slidesPerView={1.5}
       breakpoints={{
         640: {
           slidesPerView: 2,

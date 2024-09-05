@@ -11,21 +11,21 @@ import TestimonialSection from '@/components/blocks/TestimonialSection'
 export interface HomePageProps {
   data: HomePagePayload | null
   testimonials: TestimonialPayload | null
-  encodeDataAttribute?: EncodeDataAttributeCallback
+  settings: any
 }
 
 export function HomePage({
   data,
   testimonials,
-  encodeDataAttribute,
+  settings
 }: HomePageProps) {
   return (
     <>
-      <HeroSection data={data} encodeDataAttribute={encodeDataAttribute} />
-      <AboutSection data={data} encodeDataAttribute={encodeDataAttribute} />
+      <HeroSection data={data}/>
+      <AboutSection data={data} />
       <ActivitySection data={data} />
       <FeatureSection data={data} />
-      <CtaSection data={data} />
+      <CtaSection data={data} settings={settings} />
       <TestimonialSection testimonials={testimonials} />
     </>
   )
