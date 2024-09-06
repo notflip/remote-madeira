@@ -60,26 +60,23 @@ export default function AboutSection({
           {aboutItems &&
             aboutItems.map((item, index) => (
               <SwiperSlide key={index} className="single-features-item mb-4">
-                <div className="img-holder w-full">
-                  <ImageBox
-                    image={item.image}
-                    width={800}
-                    height={800}
-                    alt="tour image"
-                    classesWrapper="relative aspect-[2/2.5]"
-                  />
-                  <div className="content">
-                    <div className="text">
-                      <h4 className="title">{item.title}</h4>
-                      {item.link && (
-                        <Link href={item.link} className="icon-btn">
-                          <i className="far fa-arrow-right" />
-                        </Link>
-                      )}
+                <Link href={item.link} className="icon-btn block">
+                  <div className="img-holder w-full">
+                    <ImageBox
+                      image={item.image}
+                      width={800}
+                      height={800}
+                      alt="tour image"
+                      classesWrapper="relative aspect-[2/2.5]"
+                    />
+                    <div className="content">
+                      <div className="text">
+                        <h4 className="title">{item.title}</h4>
+                      </div>
+                      <p>{item.description}</p>
                     </div>
-                    <p>{item.description}</p>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
         </Swiper>
