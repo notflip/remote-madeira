@@ -33,7 +33,7 @@ export default function TestimonialSection({
           autoplay={{ delay: 3500, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           spaceBetween={8}
-          slidesPerView={1.5}
+          slidesPerView={1}
           breakpoints={{
             640: {
               slidesPerView: 2,
