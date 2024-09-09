@@ -40,11 +40,11 @@ export default function TestimonialSection({
               spaceBetween: 8,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 8,
             },
             1500: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 8,
             },
           }}
