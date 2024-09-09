@@ -19,6 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   ])
 
   const ogImage = urlForOpenGraphImage(settings?.settings.ogImage)
+
   return {
     title: homePage?.title
       ? {
@@ -26,9 +27,11 @@ export async function generateMetadata(): Promise<Metadata> {
           default: homePage.title || 'Personal website',
         }
       : undefined,
-    // description: homePage?.overview
-    //   ? toPlainText(homePage.overview)
-    //   : undefined,
+    description: homePage?.subtitle,
+    metadataBase: new URL('https://remotemadeira.com'),
+    alternates: {
+      canonical: 'https://remotemadeira.com'
+    },
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },

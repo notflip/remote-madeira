@@ -1,16 +1,29 @@
 import { loadQuery, loadSettings } from '@/sanity/loader/loadQuery'
 import { testimonialsQuery, tourQuery } from '@/sanity/lib/queries'
 import { notFound } from 'next/navigation'
-import { draftMode } from 'next/headers'
 import TourPage from '@/components/pages/tour/TourPage'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
 import { TestimonialPayload } from '@/types'
+import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 
 export function generateStaticParams() {
   return generateStaticSlugs('tour')
 }
 
-export default async function PageSlugRoute({params}) {
+export async function generateMetadata({ params }) {
+  const { data } = await loadQuery<any | null>(tourQuery, { slug: params.slug })
+  const ogImages = data.images.map((ogImage) => urlForOpenGraphImage(ogImage))
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      images: ogImages,
+    },
+  }
+}
+
+export default async function PageSlugRoute({ params }) {
   const initial = await loadQuery<any | null>(
     tourQuery,
     { slug: params.slug },
@@ -31,5 +44,11 @@ export default async function PageSlugRoute({params}) {
     notFound()
   }
 
-  return <TourPage data={initial.data} testimonials={testimonialData.data} settings={settingsData.settings} />
+  return (
+    <TourPage
+      data={initial.data}
+      testimonials={testimonialData.data}
+      settings={settingsData.settings}
+    />
+  )
 }
