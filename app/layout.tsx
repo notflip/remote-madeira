@@ -8,7 +8,8 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
+    <head>
+        <link rel="icon" href="favicon.ico" sizes="any" />
         <link
           href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
@@ -51,9 +52,9 @@ export default async function RootLayout({
         <link rel="stylesheet" href="assets/vendor/animate.css" />
         <link rel="stylesheet" href="assets/css/default.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
-      </head>
-      <body>
-        <GoogleAnalytics gaId="G-XYW856B553" />
+    </head>
+    <body>
+    <GoogleAnalytics gaId="G-XYW856B553" />
         {children}
       </body>
     </html>
