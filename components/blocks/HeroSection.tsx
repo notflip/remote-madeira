@@ -54,7 +54,8 @@ export default function HeroSection({
                     image={heroImage}
                     width={1200}
                     height={900}
-                    alt=""
+                    size="800px"
+                    alt="remote madeira logo"
                     classesWrapper="relative aspect-[3/2]"
                   />
                 </div>

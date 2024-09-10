@@ -41,6 +41,7 @@ export default function TourSliderSection({ images }: TourSliderSectionProps) {
               <Image
                 width={400}
                 height={400}
+                sizes="400px"
                 src={imageUrl}
                 className="h-full w-full object-cover"
                 alt="image"

@@ -66,6 +66,7 @@ export default function AboutSection({
                       image={item.image}
                       width={800}
                       height={800}
+                      size="300px"
                       alt="tour image"
                       classesWrapper="relative aspect-[2/2.5]"
                     />

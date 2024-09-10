@@ -87,6 +87,7 @@ export default function ActivitySection({
                                 image={item.image}
                                 width={600}
                                 height={800}
+                                size="500px"
                                 alt="tour image"
                                 classesWrapper="relative aspect-[2/2.5] radius-12"
                               />

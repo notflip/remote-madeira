@@ -50,6 +50,7 @@ export default function ToursPage({
                         image={tour.coverImage}
                         width={600}
                         height={500}
+                        size="500px"
                         alt="tour image"
                         classesWrapper="relative aspect-[4/3] radius-12"
                       />
