@@ -9,7 +9,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
     <head>
-        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="icon" href="icon.png" sizes="any" />
         <link
           href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
