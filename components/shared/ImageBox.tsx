@@ -9,6 +9,7 @@ interface ImageBoxProps {
   height?: number
   size?: string
   classesWrapper?: string
+  eager?: boolean
   'data-sanity'?: string
 }
 
@@ -19,6 +20,7 @@ export default function ImageBox({
   height = 800,
   size = '100vw',
   classesWrapper,
+  eager = false,
   ...props
 }: ImageBoxProps) {
   const imageUrl =
@@ -38,6 +40,7 @@ export default function ImageBox({
           height={height}
           sizes={size}
           src={imageUrl}
+          loading={eager ? 'eager' : 'lazy'}
         />
       )}
     </div>

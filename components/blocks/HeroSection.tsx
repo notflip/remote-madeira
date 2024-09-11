@@ -1,5 +1,4 @@
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 
 import { HomePagePayload } from '@/types'
 
@@ -57,6 +56,7 @@ export default function HeroSection({
                     size="800px"
                     alt="remote madeira logo"
                     classesWrapper="relative aspect-[3/2]"
+                    eager={true}
                   />
                 </div>
               </div>
