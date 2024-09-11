@@ -12,7 +12,7 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="icon" href="icon.png" sizes="any" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500;600;700&display=swap"
           rel="stylesheet"
         />
         <link
