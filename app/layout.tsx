@@ -52,7 +52,7 @@ export default async function RootLayout({
         />
         <link rel="stylesheet" href="assets/vendor/animate.css" />
         <link rel="stylesheet" href="assets/css/default.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/style.min.css" />
       </head>
       <body>
         <GoogleAnalytics gaId="G-XYW856B553" />
