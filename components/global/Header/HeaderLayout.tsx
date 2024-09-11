@@ -50,7 +50,7 @@ const Header = ({ settings }: HeaderProps) => {
             <div className="col-xl-3 d-none d-xl-block">
               <div className="site-branding max-h-[100px]">
                 <Link href="/" className="brand-logo">
-                  <img src={logoUrl} alt="Logo" />
+                  <img src={logoUrl} width="161" height="110" alt="Logo" />
                 </Link>
               </div>
             </div>
@@ -126,7 +126,7 @@ const Header = ({ settings }: HeaderProps) => {
             <div className="nav-menu">
               <div className="mobile-logo mb-30 d-block d-xl-none">
                 <Link href="/" className="brand-logo">
-                  <img src={logoUrl} alt="Logo" />
+                  <img src={logoUrl} width="161" height="110" alt="Logo" />
                 </Link>
               </div>
 

@@ -54,7 +54,7 @@ export default function HeroSection({
                     width={1200}
                     height={900}
                     size="800px"
-                    alt="remote madeira logo"
+                    alt="remote madeira hero"
                     classesWrapper="relative aspect-[3/2]"
                     eager={true}
                   />

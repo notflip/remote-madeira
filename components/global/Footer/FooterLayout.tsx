@@ -20,7 +20,7 @@ export default function Footer(props: any) {
                 <div className="footer-content">
                   <p>{data.footer.about}</p>
                   <Link href="/" className="footer-logo">
-                    <img src={logoUrl} alt="Site Logo" />
+                    <img src={logoUrl} width="175" height="120" alt="Logo" />
                   </Link>
                 </div>
               </div>
