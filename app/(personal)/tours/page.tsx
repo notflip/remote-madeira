@@ -10,11 +10,13 @@ const ToursPagePreview = dynamic(
   () => import('@/components/pages/tours/ToursPagePreview'),
 )
 
-export async function generateMetadata() {
+/*export async function generateMetadata() {
   return {
-    title: `Tours`,
+    alternates: {
+      canonical: 'test'
+    },
   }
-}
+}*/
 
 export default async function Tours() {
   const initial = await loadQuery<any | null>(

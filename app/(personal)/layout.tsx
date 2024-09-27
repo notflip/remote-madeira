@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: homePage?.subtitle,
     metadataBase: new URL('https://remotemadeira.com'),
     alternates: {
-      canonical: 'https://remotemadeira.com'
+      canonical: './',
     },
     openGraph: {
       images: ogImage ? [ogImage] : [],
