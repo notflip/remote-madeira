@@ -18,7 +18,9 @@ export async function generateMetadata({ params }) {
     title: data.title,
     description: data.description,
     openGraph: {
-      images: ogImages,
+      type: 'website',
+      locale: 'en_US',
+      images: ogImages[0],
     },
   }
 }

@@ -33,6 +33,8 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: './',
     },
     openGraph: {
+      type: 'website',
+      locale: 'en_US',
       images: ogImage ? [ogImage] : [],
     },
   }
