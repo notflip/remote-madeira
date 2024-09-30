@@ -26,6 +26,7 @@ export default function CtaSection({
           image={ctaImage}
           width={1920}
           height={800}
+          size="1600px"
           alt="tour image"
           classesWrapper="relative h-full"
         />

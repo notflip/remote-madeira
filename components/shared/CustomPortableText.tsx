@@ -46,6 +46,7 @@ export function CustomPortableText({
           <div className="my-3">
             <ImageBox
               image={value}
+              size="1200px"
               alt={value.alt}
               classesWrapper="relative aspect-[3/2]"
             />

@@ -155,6 +155,7 @@ export default function TourPage({
                             image={extraImage.image}
                             width={500}
                             height={500}
+                            size="500px"
                             alt="tour image"
                             classesWrapper="relative aspect-[4/3] radius-12"
                           />
