@@ -65,7 +65,7 @@ const Header = ({ settings }: HeaderProps) => {
                         </div>
                         <div className="info">
                           <span className="title">Office Address</span>
-                          <h5>{settings.address}</h5>
+                          <p>{settings.address}</p>
                         </div>
                       </div>
                     </div>
@@ -78,11 +78,11 @@ const Header = ({ settings }: HeaderProps) => {
                         </div>
                         <div className="info">
                           <span className="title">Email Address</span>
-                          <h5>
+                          <p style={{fontSize: '18px', fontWeight: '600'}}>
                             <a href={`mailto:${settings.mail}`}>
                               {settings.mail}
                             </a>
-                          </h5>
+                          </p>
                         </div>
                       </div>
                     </div>

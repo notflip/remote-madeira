@@ -28,7 +28,7 @@ export default function TourPage({
             <div className="row">
               <div className="col-xl-6 mb-4 lg:mb-0">
                 <div className="tour-title mb-20">
-                  <h3 className="title">{data.title}</h3>
+                  <h1 className="title">{data.title}</h1>
                   <p className="font-serif text-xl text-gray-600">
                     {data.description}
                   </p>
