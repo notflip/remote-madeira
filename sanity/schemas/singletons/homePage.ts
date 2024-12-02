@@ -137,6 +137,7 @@ export default defineType({
                   { title: 'Wine Tour Page', value: '/wine-tour-madeira' },
                   { title: 'Rock Climbing Page', value: '/rock-climbing-madeira' },
                   { title: 'Pico Das Torres Page', value: '/climb-pico-das-torres' },
+                  { title: 'Coasteering Page', value: '/coasteering' },
                 ]
               },
             })
