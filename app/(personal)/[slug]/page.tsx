@@ -12,25 +12,20 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { data } = await loadQuery<any | null>(tourQuery, { slug: params.slug })
-  const ogImages = data.images.map((ogImage) => urlForOpenGraphImage(ogImage))
 
   return {
-    title: data.title,
-    description: data.description,
+    title: data?.title ?? 'Remote Madeira',
+    description: data?.description ?? '',
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      images: ogImages[0],
+      images: data?.images?.map(urlForOpenGraphImage)?.[0] || '',
     },
   }
 }
 
 export default async function PageSlugRoute({ params }) {
-  const initial = await loadQuery<any | null>(
-    tourQuery,
-    { slug: params.slug },
-    { next: { tags: ['tour'] } },
-  )
+  const initial = await loadQuery<any | null>(tourQuery, { slug: params.slug })
 
   const { data: settingsData } = await loadSettings()
 
