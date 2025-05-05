@@ -1,27 +1,19 @@
-'use client'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
-import 'swiper/css'
-
-import { HomePagePayload } from '@/types'
 import ImageBox from '@/components/shared/ImageBox'
+import { HomePagePayload } from '@/types'
 
 export interface AboutSectionProps {
   data: Partial<HomePagePayload> | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
-export default function AboutSection({
-  data,
-  encodeDataAttribute,
-}: AboutSectionProps) {
+export default function AboutSection({ data }: AboutSectionProps) {
   const { aboutTitle, aboutSubtitle, aboutItems } = data ?? {}
 
   return (
-    <section className="about-section pt-100">
+    <section className="about-section py-[100px]">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-9">
@@ -37,29 +29,10 @@ export default function AboutSection({
       </div>
 
       <div className="container">
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 3500, disableOnInteraction: false }}
-          spaceBetween={8}
-          slidesPerView={1.5}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 8,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 8,
-            },
-            1500: {
-              slidesPerView: 4,
-              spaceBetween: 8,
-            },
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {aboutItems &&
             aboutItems.map((item, index) => (
-              <SwiperSlide key={index} className="single-features-item mb-4">
+              <div key={index} className="single-features-item">
                 <Link href={item.link} className="icon-btn block">
                   <div className="img-holder w-full">
                     <ImageBox
@@ -78,9 +51,9 @@ export default function AboutSection({
                     </div>
                   </div>
                 </Link>
-              </SwiperSlide>
+              </div>
             ))}
-        </Swiper>
+        </div>
       </div>
     </section>
   )
