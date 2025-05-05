@@ -15,7 +15,7 @@ export default function TourPage({
   testimonials,
   settings,
 }: TourPageProps) {
-  const whatsAppText = `Hi Remote Madeirs! I'm interested in the ${data.title} tour`
+  const whatsAppText = `Hi! I'm interested in the ${data.title} tour`
 
   return (
     <section className="place-details-section">
