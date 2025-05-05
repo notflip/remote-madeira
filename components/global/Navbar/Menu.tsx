@@ -48,7 +48,7 @@ const DeskTopMenu = () => {
               </span>
             </Link>
           </li>
-          <li className="menu-item">
+          {/* <li className="menu-item">
             <Link href="/west-tour-madeira" style={{ textDecoration: currentPath === '/west-tour-madeira' ? 'underline' : 'none' }}>West Tour</Link>
           </li>
           <li className="menu-item">
@@ -59,7 +59,7 @@ const DeskTopMenu = () => {
           </li>
           <li className="menu-item">
             <Link href="/east-tour-madeira" style={{ textDecoration: currentPath === '/east-tour-madeira' ? 'underline' : 'none' }}>East Tour</Link>
-          </li>
+          </li> */}
           {/*<li className="menu-item">*/}
           {/*  <Link href="/climb-pico-das-torres">Pico Das Torres</Link>*/}
           {/*</li>*/}
@@ -89,7 +89,7 @@ const MobileMenu = () => {
             <span className="border-r border-black/50 pr-4">All Tours</span>
           </Link>
         </li>
-        <li className="menu-item">
+        {/* <li className="menu-item">
           <Link href="/west-tour-madeira">West Tour</Link>
         </li>
         <li className="menu-item">
@@ -100,7 +100,7 @@ const MobileMenu = () => {
         </li>
         <li className="menu-item">
           <Link href="/wine-tour-madeira">Wine Tour</Link>
-        </li>
+        </li> */}
         {/*<li className="menu-item">*/}
         {/*  <Link href="/rock-climbing-madeira">Rock Climbing Tour</Link>*/}
         {/*</li>*/}
