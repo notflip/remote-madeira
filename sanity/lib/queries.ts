@@ -81,6 +81,7 @@ export const tourQuery = groq`
   coverImage,
   region,
   duration,
+  whatsAppText,
   maxPersons,
   minAge,
   price,

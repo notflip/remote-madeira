@@ -78,7 +78,7 @@ const Header = ({ settings }: HeaderProps) => {
                         </div>
                         <div className="info">
                           <span className="title">Email Address</span>
-                          <p style={{fontSize: '18px', fontWeight: '600'}}>
+                          <p style={{ fontSize: '18px', fontWeight: '600' }}>
                             <a href={`mailto:${settings.mail}`}>
                               {settings.mail}
                             </a>
@@ -132,7 +132,7 @@ const Header = ({ settings }: HeaderProps) => {
 
               <Menu />
 
-              <div className="menu-button mt-40 d-xl-none">
+              {/* <div className="menu-button mt-40 d-xl-none">
                 <Link
                   href={`https://wa.me/${settings.phone.replace(/[^\d]/g, '')}`}
                   className="flex gap-2 items-center px-4 py-2 rounded-lg text-white bg-[#25D366]"
@@ -150,10 +150,10 @@ const Header = ({ settings }: HeaderProps) => {
                   </svg>
                   <span className="font-medium">Book on WhatsApp</span>
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className="nav-right-item">
-              <div className="menu-button d-xl-block d-none">
+              {/* <div className="menu-button d-xl-block d-none">
                 <Link
                   href={`https://wa.me/${settings.phone.replace(/[^\d]/g, '')}`}
                   className="flex gap-2 items-center px-4 py-2 rounded-lg text-white bg-[#25D366]"
@@ -171,7 +171,7 @@ const Header = ({ settings }: HeaderProps) => {
                   </svg>
                   <span className="font-medium">Book on WhatsApp</span>
                 </Link>
-              </div>
+              </div> */}
               <div className="navbar-toggler">
                 <span />
                 <span />

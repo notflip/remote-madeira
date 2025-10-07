@@ -2,6 +2,7 @@ import { DocumentIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 import { SlugInput } from '@/sanity/components/SlugInput'
+import { TextAreaInput } from '@/sanity/components/TextAreaInput'
 
 import { getSeoFields } from '../objects/seoFields'
 
@@ -50,6 +51,17 @@ export default defineType({
       name: 'description',
       type: 'text',
       description: 'This is the short introduction description',
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
+      name: 'whatsAppText',
+      title: 'WhatsApp Text',
+      type: 'text',
+      description: 'Text message for WhatsApp (newlines will be preserved)',
+      components: {
+        input: TextAreaInput,
+      },
       validation: (rule) => rule.required(),
     }),
 

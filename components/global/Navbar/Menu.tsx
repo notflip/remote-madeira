@@ -48,9 +48,18 @@ const DeskTopMenu = () => {
               </span>
             </Link>
           </li>
-          {/* <li className="menu-item">
-            <Link href="/west-tour-madeira" style={{ textDecoration: currentPath === '/west-tour-madeira' ? 'underline' : 'none' }}>West Tour</Link>
+          <li className="menu-item">
+            <Link
+              href="/coasteering"
+              style={{
+                textDecoration:
+                  currentPath === '/coasteering' ? 'underline' : 'none',
+              }}
+            >
+              Coasteering in Madeira
+            </Link>
           </li>
+          {/* 
           <li className="menu-item">
             <Link href="/wine-tour-madeira" style={{ textDecoration: currentPath === '/wine-tour-madeira' ? 'underline' : 'none' }}>Wine Tour</Link>
           </li>

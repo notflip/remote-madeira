@@ -12,6 +12,14 @@ export default function ToursPage({
   tours,
   encodeDataAttribute,
 }: ToursPageProps) {
+  // Reorder tours to put coasteering tour first
+  const orderedTours = tours
+    ? [
+        ...tours.filter((tour) => tour.slug === 'coasteering'),
+        ...tours.filter((tour) => tour.slug !== 'coasteering'),
+      ]
+    : null
+
   return (
     <div>
       <section
@@ -38,65 +46,70 @@ export default function ToursPage({
       <section className="places-section pb-100">
         <div className="container py-16">
           <div className="row">
-            {tours &&
-              tours.map((tour, index) => (
-                <div
-                  className="col-xl-4 col-md-6 col-sm-12 places-column"
-                  key={index}
-                >
-                  <div className="single-place-item mb-60 wow fadeInUp">
-                    <div className="place-img">
-                      <ImageBox
-                        image={tour.coverImage}
-                        width={600}
-                        height={500}
-                        size="500px"
-                        alt="tour image"
-                        classesWrapper="relative aspect-[4/3] radius-12"
-                      />
-                    </div>
-                    <div className="place-content">
-                      <div className="info">
-                        <h4 className="title">
-                          <Link href={`/${tour.slug}`}>{tour.title}</Link>
-                        </h4>
-                        {tour.region && (
-                          <p className="location">
-                            <i className="far fa-map-marker-alt" />
-                            {tour.region}
+            {orderedTours &&
+              orderedTours.map((tour, index) => {
+                // Coasteering tour (first item) gets double width
+                const isCoasteering = tour.slug === 'coasteering'
+                const columnClasses = isCoasteering
+                  ? 'col-xl-8 col-md-12 col-sm-12 places-column'
+                  : 'col-xl-4 col-md-6 col-sm-12 places-column'
+
+                return (
+                  <div className={columnClasses} key={index}>
+                    <div className="single-place-item mb-60 wow fadeInUp">
+                      <div className="place-img">
+                        <ImageBox
+                          image={tour.coverImage}
+                          width={600}
+                          height={500}
+                          size="500px"
+                          alt="tour image"
+                          classesWrapper={`relative ${isCoasteering ? 'aspect-[16/9]' : 'aspect-[4/3]'} radius-12`}
+                        />
+                      </div>
+                      <div className="place-content">
+                        <div className="info">
+                          <h4 className="title">
+                            <Link href={`/${tour.slug}`}>{tour.title}</Link>
+                          </h4>
+                          {tour.region && (
+                            <p className="location">
+                              <i className="far fa-map-marker-alt" />
+                              {tour.region}
+                            </p>
+                          )}
+                          <p className="my-2 leading-normal">
+                            {tour.description.length > 200
+                              ? `${tour.description.slice(0, 200)}...`
+                              : tour.description}
                           </p>
-                        )}
-                        <p className="my-2 leading-normal">
-                          {tour.description.length > 200
-                            ? `${tour.description.slice(0, 200)}...`
-                            : tour.description}
-                        </p>
-                        <div className="meta flex">
-                          {tour.price && (
-                            <span>
-                              <i className="fas fa-usd-circle" />
-                              <span className="currency">&euro;</span>
-                              {tour.price}
+                          <div className="meta flex">
+                            {tour.price && (
+                              <span>
+                                <i className="fas fa-usd-circle" />
+                                <span className="currency">&euro;</span>
+                                {tour.price}
+                              </span>
+                            )}
+                            {tour.maxPersons && (
+                              <span>
+                                <i className="far fa-user" />
+                                {tour.maxPersons}
+                              </span>
+                            )}
+                            <span className="ml-auto">
+                              <Link href={`/${tour.slug}`}>
+                                Details
+                                <i className="far fa-long-arrow-right" />
+                              </Link>
                             </span>
-                          )}
-                          {tour.maxPersons && (
-                            <span>
-                              <i className="far fa-user" />
-                              {tour.maxPersons}
-                            </span>
-                          )}
-                          <span className="ml-auto">
-                            <Link href={`/${tour.slug}`}>
-                              Details
-                              <i className="far fa-long-arrow-right" />
-                            </Link>
-                          </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
           </div>
         </div>
       </section>

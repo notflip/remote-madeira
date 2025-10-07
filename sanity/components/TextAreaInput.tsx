@@ -1,9 +1,9 @@
-import {useCallback} from 'react'
-import {Inline, Badge, Stack, Text, TextArea} from '@sanity/ui'
-import {set, unset} from 'sanity'
+import { useCallback } from 'react'
+import { Inline, Badge, Stack, Text, TextArea } from '@sanity/ui'
+import { set, unset } from 'sanity'
 
 export const TextAreaInput = (props: any) => {
-  const {elementProps, onChange, value = '', min, max} = props
+  const { elementProps, onChange, value = '', min, max } = props
 
   const handleChange = useCallback(
     (event: any) => {
@@ -32,7 +32,12 @@ export const TextAreaInput = (props: any) => {
           </Text>
         </Badge>
       </Inline>
-      <TextArea {...elementProps} onChange={handleChange} value={value} />
+      <TextArea
+        rows={6}
+        {...elementProps}
+        onChange={handleChange}
+        value={value}
+      />
     </Stack>
   )
 }

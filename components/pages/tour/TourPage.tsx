@@ -10,12 +10,22 @@ export interface TourPageProps {
   settings: any
 }
 
+function prepareWhatsAppText(text) {
+  // Replace newlines with %0a
+  return text
+    .replace(/\r\n|\n|\r/g, '%0a') // normalize all kinds of newlines
+    .replace(/ /g, '%20') // optional: encode spaces for clean URLs
+}
+
 export default function TourPage({
   data,
   testimonials,
   settings,
 }: TourPageProps) {
-  const whatsAppText = `Hi! I'm interested in the ${data.title} tour`
+  const whatsAppText =
+    data.whatsAppText || `Hi! I'm interested in the ${data.title} tour`
+
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${settings.phone.replace(/[^\d]/g, '')}&text=${prepareWhatsAppText(whatsAppText)}`
 
   return (
     <section className="place-details-section">
@@ -93,7 +103,7 @@ export default function TourPage({
                   <h4 className="widget-title">Book Tour</h4>
                   <div className="submit-button">
                     <Link
-                      href={`https://wa.me/${settings.phone.replace(/[^\d]/g, '')}?text=${whatsAppText}`}
+                      href={whatsappLink}
                       className="flex gap-2 items-center px-4 py-2 rounded-lg text-white bg-[#25D366]"
                     >
                       <svg
