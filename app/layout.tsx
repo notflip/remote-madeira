@@ -1,4 +1,5 @@
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+
 import './globals.css'
 
 export default async function RootLayout({
@@ -31,7 +32,8 @@ export default async function RootLayout({
         <link rel="stylesheet" href="assets/css/style.min.css" />
       </head>
       <body>
-        <GoogleAnalytics gaId="G-XYW856B553" />
+        {/* <GoogleAnalytics gaId="G-XYW856B553" /> */}
+        <GoogleTagManager gtmId="GTM-5JRCFTXH" />
         {children}
       </body>
     </html>
