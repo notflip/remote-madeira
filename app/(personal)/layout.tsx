@@ -7,6 +7,7 @@ import { Footer } from '@/components/global/Footer'
 import Header from '@/components/global/Header/HeaderLayout'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
@@ -53,6 +54,7 @@ export default async function IndexRoute({
 
   return (
     <>
+      <GoogleTagManager gtmId="GTM-5JRCFTXH" />
       <Suspense>
         <Header settings={data.settings} />
       </Suspense>
