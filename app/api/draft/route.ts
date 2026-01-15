@@ -8,6 +8,14 @@ import { token } from '@/sanity/lib/token'
 const clientWithToken = client.withConfig({ token })
 
 export async function GET(request: Request) {
+  const url = new URL(request.url)
+
+  // Early rejection: require secret parameter before making any Sanity API calls
+  // This prevents bots from triggering expensive API calls
+  if (!url.searchParams.has('sanity-preview-secret')) {
+    return new Response('Missing required parameters', { status: 400 })
+  }
+
   const { isValid, redirectTo = '/' } = await validatePreviewUrl(
     clientWithToken,
     request.url,
