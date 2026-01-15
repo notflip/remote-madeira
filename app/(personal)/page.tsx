@@ -11,15 +11,15 @@ const HomePagePreview = dynamic(
 )
 
 export default async function IndexRoute() {
-  const homepageData = await loadHomePage()
-  const settingsData = await loadSettings()
-  const testimonialData = await loadQuery<TestimonialPayload | null>(
-    testimonialsQuery,
-    {},
-    {
-      next: { tags: [`testimonial`] },
-    },
-  )
+  const [homepageData, settingsData, testimonialData] = await Promise.all([
+    loadHomePage(),
+    loadSettings(),
+    loadQuery<TestimonialPayload | null>(
+      testimonialsQuery,
+      {},
+      { next: { tags: ['testimonial'] } },
+    ),
+  ])
 
   if (draftMode().isEnabled) {
     return (

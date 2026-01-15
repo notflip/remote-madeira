@@ -26,20 +26,20 @@ const serverClient = client.withConfig({
  */
 queryStore.setServerClient(serverClient)
 
-const usingCdn = serverClient.config().useCdn
-// Automatically handle draft mode
+/**
+ * Handles data fetching with proper caching:
+ * - In draft mode: fetches fresh data with previewDrafts perspective
+ * - In production: caches indefinitely with tag-based revalidation via webhook
+ */
 export const loadQuery = ((query, params = {}, options = {}) => {
+  const isDraftMode = draftMode().isEnabled
   const {
-    perspective = draftMode().isEnabled ? 'previewDrafts' : 'published',
+    perspective = isDraftMode ? 'previewDrafts' : 'published',
   } = options
-  // Don't cache by default
-  let revalidate: NextFetchRequestConfig['revalidate'] = 0
-  // If `next.tags` is set, and we're not using the CDN, then it's safe to cache
-  if (!usingCdn && Array.isArray(options.next?.tags)) {
-    revalidate = false
-  } else if (usingCdn) {
-    revalidate = 60
-  }
+
+  // In draft mode: no caching. In production: cache indefinitely (revalidate via tags)
+  const revalidate: NextFetchRequestConfig['revalidate'] = isDraftMode ? 0 : false
+
   return queryStore.loadQuery(query, params, {
     ...options,
     next: {
@@ -47,8 +47,8 @@ export const loadQuery = ((query, params = {}, options = {}) => {
       ...(options.next || {}),
     },
     perspective,
-    // Enable stega if in Draft Mode, to enable overlays when outside Sanity Studio
-    stega: draftMode().isEnabled,
+    // Enable stega in Draft Mode for overlays outside Sanity Studio
+    stega: isDraftMode,
   })
 }) satisfies typeof queryStore.loadQuery
 

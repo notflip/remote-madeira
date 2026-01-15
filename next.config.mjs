@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
+    // Disable Next.js image optimization - Sanity CDN already optimizes images
+    // This prevents Netlify function invocations for every image request
+    unoptimized: true,
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
       { hostname: 'source.unsplash.com' },

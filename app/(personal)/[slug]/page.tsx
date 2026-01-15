@@ -10,7 +10,7 @@ export function generateStaticParams() {
   return generateStaticSlugs('tour')
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { data } = await loadQuery<any | null>(tourQuery, { slug: params.slug })
 
   return {
@@ -24,18 +24,16 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function PageSlugRoute({ params }) {
-  const initial = await loadQuery<any | null>(tourQuery, { slug: params.slug })
-
-  const { data: settingsData } = await loadSettings()
-
-  const testimonialData = await loadQuery<TestimonialPayload | null>(
-    testimonialsQuery,
-    {},
-    {
-      next: { tags: [`testimonial`] },
-    },
-  )
+export default async function PageSlugRoute({ params }: { params: { slug: string } }) {
+  const [initial, settingsData, testimonialData] = await Promise.all([
+    loadQuery<any | null>(tourQuery, { slug: params.slug }),
+    loadSettings(),
+    loadQuery<TestimonialPayload | null>(
+      testimonialsQuery,
+      {},
+      { next: { tags: ['testimonial'] } },
+    ),
+  ])
 
   if (!initial.data) {
     notFound()
@@ -45,7 +43,7 @@ export default async function PageSlugRoute({ params }) {
     <TourPage
       data={initial.data}
       testimonials={testimonialData.data}
-      settings={settingsData.settings}
+      settings={settingsData.data.settings}
     />
   )
 }
