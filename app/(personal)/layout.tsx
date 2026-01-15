@@ -1,6 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import dynamic from 'next/dynamic'
-import { draftMode } from 'next/headers'
 import { Suspense } from 'react'
 
 import { Footer } from '@/components/global/Footer'
@@ -8,10 +6,6 @@ import Header from '@/components/global/Header/HeaderLayout'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 import { GoogleTagManager } from '@next/third-parties/google'
-
-const LiveVisualEditing = dynamic(
-  () => import('@/sanity/loader/LiveVisualEditing'),
-)
 
 export async function generateMetadata(): Promise<Metadata> {
   const [{ data: settings }, { data: homePage }] = await Promise.all([
@@ -64,8 +58,6 @@ export default async function IndexRoute({
       <Suspense>
         <Footer />
       </Suspense>
-
-      {draftMode().isEnabled && <LiveVisualEditing />}
     </>
   )
 }
