@@ -96,6 +96,12 @@ export function middleware(request: NextRequest) {
 
   // Only apply to /api/ routes
   if (pathname.startsWith('/api/')) {
+    // Allow Sanity webhook calls through without browser-header checks
+    // (authenticated via signature inside the route handler)
+    if (pathname === '/api/revalidate') {
+      return NextResponse.next()
+    }
+
     // First check: must come from allowed origin
     if (!isAllowedOrigin(request)) {
       return new NextResponse('Forbidden', { status: 403 })
