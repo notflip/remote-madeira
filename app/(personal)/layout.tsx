@@ -51,6 +51,7 @@ export default async function IndexRoute({
   children: React.ReactNode
 }) {
   const { data } = await loadSettings()
+  const draft = await draftMode()
 
   return (
     <>
@@ -64,7 +65,7 @@ export default async function IndexRoute({
       <Suspense>
         <Footer />
       </Suspense>
-      {draftMode().isEnabled && <LiveVisualEditing />}
+      {draft.isEnabled && <LiveVisualEditing />}
     </>
   )
 }

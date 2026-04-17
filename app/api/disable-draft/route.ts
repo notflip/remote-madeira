@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 
-export function GET(request: NextRequest) {
+export async function GET(request: NextRequest) {
   // Only allow requests from same origin (prevent bot abuse)
   const referer = request.headers.get('referer')
   const origin = request.headers.get('origin')
@@ -16,7 +16,7 @@ export function GET(request: NextRequest) {
   }
 
   // Only disable if draft mode is actually enabled
-  const draft = draftMode()
+  const draft = await draftMode()
   if (!draft.isEnabled) {
     return new Response('Not in draft mode', { status: 400 })
   }
