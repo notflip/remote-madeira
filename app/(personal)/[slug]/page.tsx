@@ -10,8 +10,13 @@ export function generateStaticParams() {
   return generateStaticSlugs('tour')
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { data } = await loadQuery<any | null>(tourQuery, { slug: params.slug })
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const { data } = await loadQuery<any | null>(tourQuery, { slug })
 
   return {
     title: data?.title ?? 'Remote Madeira',
@@ -24,9 +29,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function PageSlugRoute({ params }: { params: { slug: string } }) {
+export default async function PageSlugRoute({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
   const [initial, settingsData, testimonialData] = await Promise.all([
-    loadQuery<any | null>(tourQuery, { slug: params.slug }),
+    loadQuery<any | null>(tourQuery, { slug }),
     loadSettings(),
     loadQuery<TestimonialPayload | null>(
       testimonialsQuery,
