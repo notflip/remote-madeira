@@ -1,8 +1,8 @@
 import { DocumentIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
-import { SlugInput } from '@/sanity/components/SlugInput'
-import { TextAreaInput } from '@/sanity/components/TextAreaInput'
+import { SlugInput } from '../../components/SlugInput'
+import { TextAreaInput } from '../../components/TextAreaInput'
 
 import { getSeoFields } from '../objects/seoFields'
 
